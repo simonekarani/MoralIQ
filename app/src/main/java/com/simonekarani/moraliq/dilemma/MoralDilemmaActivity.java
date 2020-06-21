@@ -15,8 +15,10 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,16 +27,22 @@ import android.widget.Toast;
 import com.simonekarani.moraliq.MainActivity;
 import com.simonekarani.moraliq.R;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
+import com.simonekarani.moraliq.selfdriving.MoralMachineActivity;
+import com.simonekarani.moraliq.selfdriving.MoralMachineData;
+import com.simonekarani.moraliq.selfdriving.MoralMachineResult;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralDilemmaActivity extends AppCompatActivity {
 
-    private static final int MAX_DILEMMA_COUNT = 35;
+    private static final int MAX_DILEMMA_COUNT = 15;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -49,10 +57,9 @@ public class MoralDilemmaActivity extends AppCompatActivity {
     private RadioButton dilemmaOptBtn2 = null;
     private RadioButton dilemmaOptBtn3 = null;
     private RadioButton dilemmaOptBtn4 = null;
-    private Button radioBtnSelect = null;
-    private RadioButton selectedOptBtn = null;
 
-    private MoralDilemmaResult[] userDilemmaResults;
+    private List<MoralDilemmaResult> mDilemmaResultList = new ArrayList<>();
+    private Set<Integer> mDilemmaDataSet = new HashSet<>();
     private int userResultCount = 0;
     private int currDilemmaDataIdx = -1;
 
@@ -60,11 +67,10 @@ public class MoralDilemmaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dilemma);
-        setTitle("Moral Dilemma IQ");
+        setTitle("Dilemma IQ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         currDilemmaDataIdx = 0;
-        userDilemmaResults = new MoralDilemmaResult[MAX_DILEMMA_COUNT];
         userResultCount = 0;
 
         dilemmaTextView = (TextView) findViewById(R.id.dilemmaText);
@@ -74,16 +80,17 @@ public class MoralDilemmaActivity extends AppCompatActivity {
         dilemmaOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
         dilemmaOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
         dilemmaOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
-        radioBtnSelect = (Button) findViewById(R.id.radioBtnSelect);
 
         myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
-        radioBtnSelect.setOnClickListener(myOnClickListener);
+        dilemmaOptBtn1.setOnClickListener(myOnClickListener);
+        dilemmaOptBtn2.setOnClickListener(myOnClickListener);
+        dilemmaOptBtn3.setOnClickListener(myOnClickListener);
+        dilemmaOptBtn4.setOnClickListener(myOnClickListener);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         updateDilemmaView();
     }
 
@@ -92,11 +99,20 @@ public class MoralDilemmaActivity extends AppCompatActivity {
         super.onRestart();
         dilemmaBtnGroup.clearCheck();
 
-        updateDilemmaView();
+        if (userResultCount < MAX_DILEMMA_COUNT) {
+            updateDilemmaView();
+        }
+        else {
+            Intent intent = new Intent(this, MDilemmaResultActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void updateDilemmaView() {
-        //currDilemmaDataIdx = (int)(MoralDilemmaData.MoralDilemmaDataList.length * Math.random());
+        do {
+            currDilemmaDataIdx = (int)(MoralDilemmaData.MoralDilemmaDataList.length * Math.random());
+        } while (mDilemmaDataSet.contains(currDilemmaDataIdx));
+        mDilemmaDataSet.add(currDilemmaDataIdx);
         MoralDilemmaModel dilemmaData = MoralDilemmaData.MoralDilemmaDataList[currDilemmaDataIdx];
 
         dilemmaTextView.setTextSize(dilemmaData.getQuestionFontSize());
@@ -111,6 +127,11 @@ public class MoralDilemmaActivity extends AppCompatActivity {
         dilemmaOptBtn3.setText(dilemmaData.getOption3());
         dilemmaOptBtn4.setTextSize(dilemmaData.getOptionFontSize());
         dilemmaOptBtn4.setText(dilemmaData.getOption4());
+
+        dilemmaOptBtn1.setPadding(0, 0, 0, dilemmaData.getBtnGap());
+        dilemmaOptBtn2.setPadding(0, 0, 0, dilemmaData.getBtnGap());
+        dilemmaOptBtn3.setPadding(0, 0, 0, dilemmaData.getBtnGap());
+        dilemmaOptBtn4.setPadding(0, 0, 0, 0);
     }
 
     private class MyOnClickListener implements View.OnClickListener {
@@ -142,10 +163,8 @@ public class MoralDilemmaActivity extends AppCompatActivity {
                     selectedOptIdx = 0;
                     break;
             }
-            userDilemmaResults[userResultCount++] = new MoralDilemmaResult(currDilemmaDataIdx,
-                    selectedOptIdx);
-            currDilemmaDataIdx++;
-
+            MoralDilemmaResult result = new MoralDilemmaResult(currDilemmaDataIdx, selectedOptIdx);
+            mDilemmaResultList.add(result);
             onRestart();
         }
     }

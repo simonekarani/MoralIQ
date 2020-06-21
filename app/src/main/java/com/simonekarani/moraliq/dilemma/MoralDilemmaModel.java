@@ -11,6 +11,7 @@ package com.simonekarani.moraliq.dilemma;
 public class MoralDilemmaModel {
     private int qFontSize;
     private int optFontSize;
+    private int btnGap;
     private String question;
     private Integer imgResId;
     private String option1;
@@ -18,9 +19,10 @@ public class MoralDilemmaModel {
     private String option3;
     private String option4;
 
-    public MoralDilemmaModel(int qfont, int optfont, String question, int imgId, String opt1, String opt2, String opt3, String opt4) {
+    public MoralDilemmaModel(int qfont, int optfont, int btnGap, String question, int imgId, String opt1, String opt2, String opt3, String opt4) {
         this.qFontSize = qfont;
         this.optFontSize = optfont;
+        this.btnGap = btnGap;
         this.question = question;
         this.imgResId = imgId;
         this.option1 = opt1;
@@ -29,11 +31,12 @@ public class MoralDilemmaModel {
         this.option4 = opt4;
     }
     public int getQuestionFontSize() {
-        return this.optFontSize;
+        return this.qFontSize;
     }
     public int getOptionFontSize() {
         return this.optFontSize;
     }
+    public int getBtnGap() { return this.btnGap; }
     public String getQuestion() {
         return this.question;
     }

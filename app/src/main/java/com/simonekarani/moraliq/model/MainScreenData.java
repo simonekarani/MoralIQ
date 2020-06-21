@@ -13,16 +13,16 @@ import com.simonekarani.moraliq.R;
 public class MainScreenData {
     public static final int MORAL_SELF_DRIVING_ID   = 0;
     public static final int MORAL_DILEMMA_ID        = 1;
-    public static final int MORAL_MEDICAL_ETHICS_ID = 2;
-    public static final int MORAL_TECH_ETHICS_ID    = 3;
-    public static final int MORAL_BIZ_ETHICS_ID     = 4;
+    public static final int MORAL_TECH_ETHICS_ID    = 2;
+    public static final int MORAL_BIZ_ETHICS_ID     = 3;
+    public static final int MORAL_MEDICAL_ETHICS_ID = 4;
 
     public static String[] nameArray = {
-            "Moral Machine", "Moral Dilemma", "Medical Ethics", "Tech Ethics", "Business Ethics"
+            "Moral Machine", "Moral Dilemma", "Tech Ethics", "Business Ethics", "Medical Ethics"
     };
 
     public static Integer[] drawableArray = {
-            R.drawable.driving, R.drawable.dilemma, R.drawable.medethics, R.drawable.techethics, R.drawable.bizethics
+            R.drawable.driving, R.drawable.dilemma, R.drawable.techethics, R.drawable.bizethics, R.drawable.medethics
     };
 
     public static Integer[] id_ = {0, 1, 2, 3, 4};

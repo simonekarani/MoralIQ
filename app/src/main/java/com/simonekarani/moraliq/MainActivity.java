@@ -108,14 +108,14 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
             case MORAL_DILEMMA_ID:
                 intent = new Intent(this, MoralDilemmaActivity.class);
                 break;
-            case MORAL_MEDICAL_ETHICS_ID:
-                intent = new Intent(this, MedicalEthicsActivity.class);
-                break;
             case MORAL_TECH_ETHICS_ID:
                 intent = new Intent(this, TechEthicsActivity.class);
                 break;
             case MORAL_BIZ_ETHICS_ID:
                 intent = new Intent(this, BusinessEthicsActivity.class);
+                break;
+            case MORAL_MEDICAL_ETHICS_ID:
+                intent = new Intent(this, MedicalEthicsActivity.class);
                 break;
             default:
                 intent = new Intent(this, MoralMachineActivity.class);

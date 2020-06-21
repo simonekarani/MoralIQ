@@ -47,6 +47,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:textStyle="bold"
             android:text="RadioButton" />
 
         <RadioButton
@@ -56,6 +57,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:textStyle="bold"
             android:text="RadioButton" />
 
         <RadioButton
@@ -65,6 +67,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:textStyle="bold"
             android:text="RadioButton" />
 
         <RadioButton
@@ -74,26 +77,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:textStyle="bold"
             android:text="RadioButton" />
 
     </RadioGroup>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
-        android:orientation="vertical" >
-
-       <Button
-            android:id="@+id/radioBtnSelect"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-           android:layout_marginBottom="10dp"
-            android:textSize="20dp"
-            android:text="@string/dilemma_btn_select" />
-    </LinearLayout>
 
 </LinearLayout>

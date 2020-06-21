@@ -10,9 +10,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".dilemma.MoralDilemmaActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".dilemma.MDilemmaResultActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".medethics.MedicalEthicsActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".selfdriving.MoralMachineActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".selfdriving.MMachineResultActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".techethics.TechEthicsActivity"
             android:parentActivityName=".MainActivity" />
