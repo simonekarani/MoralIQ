@@ -14,6 +14,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".medethics.MedicalEthicsActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".medethics.MedEthicalResultActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".selfdriving.MoralMachineActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".selfdriving.MMachineResultActivity"
