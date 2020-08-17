@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
     public void onTopicClick(int position) {
         Intent intent = new Intent(this, MoralMachineActivity.class);
         switch (position) {
-            case MORAL_SELF_DRIVING_ID:
-                intent = new Intent(this, MoralMachineActivity.class);
-                break;
             case MORAL_DILEMMA_ID:
                 intent = new Intent(this, MoralDilemmaActivity.class);
+                break;
+            case MORAL_MEDICAL_ETHICS_ID:
+                intent = new Intent(this, MedicalEthicsActivity.class);
                 break;
             case MORAL_TECH_ETHICS_ID:
                 intent = new Intent(this, TechEthicsActivity.class);
@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
             case MORAL_BIZ_ETHICS_ID:
                 intent = new Intent(this, BusinessEthicsActivity.class);
                 break;
-            case MORAL_MEDICAL_ETHICS_ID:
-                intent = new Intent(this, MedicalEthicsActivity.class);
+            case MORAL_SELF_DRIVING_ID:
+                intent = new Intent(this, MoralMachineActivity.class);
                 break;
             default:
                 intent = new Intent(this, MoralMachineActivity.class);

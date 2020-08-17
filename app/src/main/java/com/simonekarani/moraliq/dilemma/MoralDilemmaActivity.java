@@ -165,6 +165,7 @@ public class MoralDilemmaActivity extends AppCompatActivity {
             }
             MoralDilemmaResult result = new MoralDilemmaResult(currDilemmaDataIdx, selectedOptIdx);
             mDilemmaResultList.add(result);
+            userResultCount++;
             onRestart();
         }
     }

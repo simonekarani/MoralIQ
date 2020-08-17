@@ -11,7 +11,7 @@ public class MedEthicalResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medethics_results);
-        setTitle("Moral Dilemma Results");
+        setTitle("Medical Ethics Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
