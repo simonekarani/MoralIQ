@@ -20,11 +20,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
@@ -37,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BusinessEthicsActivity extends AppCompatActivity {
 
-    private static final int MAX_DILEMMA_COUNT = 15;
+    private static final int MAX_BIZTHICS_COUNT = 25;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -45,42 +40,42 @@ public class BusinessEthicsActivity extends AppCompatActivity {
     private static ArrayList<MainScreenDataModel> data;
     private View.OnClickListener myOnClickListener;
 
-    private TextView techthicsTextView = null;
-    private ImageView techthicsImageView = null;
-    private RadioGroup techthicsBtnGroup = null;
-    private RadioButton techthicsOptBtn1 = null;
-    private RadioButton techthicsOptBtn2 = null;
-    private RadioButton techthicsOptBtn3 = null;
-    private RadioButton techthicsOptBtn4 = null;
+    private TextView bizthicsTextView = null;
+    private ImageView bizthicsImageView = null;
+    private RadioGroup bizthicsBtnGroup = null;
+    private RadioButton bizthicsOptBtn1 = null;
+    private RadioButton bizthicsOptBtn2 = null;
+    private RadioButton bizthicsOptBtn3 = null;
+    private RadioButton bizthicsOptBtn4 = null;
 
-    private List<BusinessEthicsResult> mTechthicsResultList = new ArrayList<>();
-    private Set<Integer> mTechthicsDataSet = new HashSet<>();
+    private List<BusinessEthicsResult> mBizthicsResultList = new ArrayList<>();
+    private Set<Integer> mBizthicsDataSet = new HashSet<>();
     private int userResultCount = 0;
-    private int currDilemmaDataIdx = -1;
+    private int currBizthicsDataIdx = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizethics);
-        setTitle("Dilemma IQ");
+        setTitle("Business Ethics IQ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        currDilemmaDataIdx = 0;
+        currBizthicsDataIdx = 0;
         userResultCount = 0;
 
-        techthicsTextView = (TextView) findViewById(R.id.dilemmaText);
-        techthicsImageView = (ImageView) findViewById(R.id.dilemmaImage);
-        techthicsBtnGroup = (RadioGroup) findViewById(R.id.optButtonGroup);
-        techthicsOptBtn1  = (RadioButton) findViewById(R.id.optButton1);
-        techthicsOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
-        techthicsOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
-        techthicsOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
+        bizthicsTextView = (TextView) findViewById(R.id.bizthicsText);
+        bizthicsImageView = (ImageView) findViewById(R.id.bizthicsImage);
+        bizthicsBtnGroup = (RadioGroup) findViewById(R.id.optButtonGroup);
+        bizthicsOptBtn1  = (RadioButton) findViewById(R.id.optButton1);
+        bizthicsOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
+        bizthicsOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
+        bizthicsOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
 
-        myOnClickListener = (View.OnClickListener) new com.simonekarani.moraliq.bizethics.BusinessEthicsActivity.MyOnClickListener(this);
-        techthicsOptBtn1.setOnClickListener(myOnClickListener);
-        techthicsOptBtn2.setOnClickListener(myOnClickListener);
-        techthicsOptBtn3.setOnClickListener(myOnClickListener);
-        techthicsOptBtn4.setOnClickListener(myOnClickListener);
+        myOnClickListener = (View.OnClickListener) new BusinessEthicsActivity.MyOnClickListener(this);
+        bizthicsOptBtn1.setOnClickListener(myOnClickListener);
+        bizthicsOptBtn2.setOnClickListener(myOnClickListener);
+        bizthicsOptBtn3.setOnClickListener(myOnClickListener);
+        bizthicsOptBtn4.setOnClickListener(myOnClickListener);
     }
 
     @Override
@@ -92,41 +87,41 @@ public class BusinessEthicsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        techthicsBtnGroup.clearCheck();
+        bizthicsBtnGroup.clearCheck();
 
-        if (userResultCount < MAX_DILEMMA_COUNT) {
+        if (userResultCount < MAX_BIZTHICS_COUNT) {
             updateDilemmaView();
         }
         else {
-            Intent intent = new Intent(this, MDilemmaResultActivity.class);
+            Intent intent = new Intent(this, BusinessEthicsResultActivity.class);
             startActivity(intent);
         }
     }
 
     private void updateDilemmaView() {
-        do {
-            currDilemmaDataIdx = (int)(BusinessEthicsData.TechEthicsDataList.length * Math.random());
-        } while (mTechthicsDataSet.contains(currDilemmaDataIdx));
-        mTechthicsDataSet.add(currDilemmaDataIdx);
-        BusinessEthicsModel techthicsData = BusinessEthicsData.TechEthicsDataList[currDilemmaDataIdx];
+        /*do {
+            currDilemmaDataIdx = (int)(BusinessEthicsData.BizEthicsDataList.length * Math.random());
+        } while (mBizthicsDataSet.contains(currDilemmaDataIdx));
+        mBizthicsDataSet.add(currDilemmaDataIdx);*/
+        BusinessEthicsModel bizthicsData = BusinessEthicsData.BizEthicsDataList[currBizthicsDataIdx];
 
-        techthicsTextView.setTextSize(techthicsData.getQuestionFontSize());
-        techthicsTextView.setText(techthicsData.getQuestion());
+        bizthicsTextView.setTextSize(bizthicsData.getQuestionFontSize());
+        bizthicsTextView.setText(bizthicsData.getQuestion());
 
-        techthicsImageView.setImageResource(techthicsData.getImageResId());
-        techthicsOptBtn1.setTextSize(techthicsData.getOptionFontSize());
-        techthicsOptBtn1.setText(techthicsData.getOption1());
-        techthicsOptBtn2.setTextSize(techthicsData.getOptionFontSize());
-        techthicsOptBtn2.setText(techthicsData.getOption2());
-        techthicsOptBtn3.setTextSize(techthicsData.getOptionFontSize());
-        techthicsOptBtn3.setText(techthicsData.getOption3());
-        techthicsOptBtn4.setTextSize(techthicsData.getOptionFontSize());
-        techthicsOptBtn4.setText(techthicsData.getOption4());
+        bizthicsImageView.setImageResource(bizthicsData.getImageResId());
+        bizthicsOptBtn1.setTextSize(bizthicsData.getOptionFontSize());
+        bizthicsOptBtn1.setText(bizthicsData.getOption1());
+        bizthicsOptBtn2.setTextSize(bizthicsData.getOptionFontSize());
+        bizthicsOptBtn2.setText(bizthicsData.getOption2());
+        bizthicsOptBtn3.setTextSize(bizthicsData.getOptionFontSize());
+        bizthicsOptBtn3.setText(bizthicsData.getOption3());
+        bizthicsOptBtn4.setTextSize(bizthicsData.getOptionFontSize());
+        bizthicsOptBtn4.setText(bizthicsData.getOption4());
 
-        techthicsOptBtn1.setPadding(0, 0, 0, techthicsData.getBtnGap());
-        techthicsOptBtn2.setPadding(0, 0, 0, techthicsData.getBtnGap());
-        techthicsOptBtn3.setPadding(0, 0, 0, techthicsData.getBtnGap());
-        techthicsOptBtn4.setPadding(0, 0, 0, 0);
+        bizthicsOptBtn1.setPadding(0, 0, 0, bizthicsData.getBtnGap());
+        bizthicsOptBtn2.setPadding(0, 0, 0, bizthicsData.getBtnGap());
+        bizthicsOptBtn3.setPadding(0, 0, 0, bizthicsData.getBtnGap());
+        bizthicsOptBtn4.setPadding(0, 0, 0, 0);
     }
 
     private class MyOnClickListener implements View.OnClickListener {
@@ -139,7 +134,7 @@ public class BusinessEthicsActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = techthicsBtnGroup.getCheckedRadioButtonId();
+            int selectedId = bizthicsBtnGroup.getCheckedRadioButtonId();
             int selectedOptIdx = -1;
             switch (selectedId) {
                 case R.id.optButton1:
@@ -158,9 +153,10 @@ public class BusinessEthicsActivity extends AppCompatActivity {
                     selectedOptIdx = 0;
                     break;
             }
-            BusinessEthicsResult result = new BusinessEthicsResult(currDilemmaDataIdx, selectedOptIdx);
-            mTechthicsResultList.add(result);
+            BusinessEthicsResult result = new BusinessEthicsResult(currBizthicsDataIdx, selectedOptIdx);
+            mBizthicsResultList.add(result);
             userResultCount++;
+            currBizthicsDataIdx++;
             onRestart();
         }
     }

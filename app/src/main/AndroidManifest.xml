@@ -26,6 +26,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".bizethics.BusinessEthicsActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".bizethics.BusinessEthicsResultActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
