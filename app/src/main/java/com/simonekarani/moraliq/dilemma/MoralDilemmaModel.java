@@ -12,6 +12,8 @@ public class MoralDilemmaModel {
     private int qFontSize;
     private int optFontSize;
     private int btnGap;
+    private int analysisOpt;
+    private String analysis;
     private String question;
     private Integer imgResId;
     private String option1;
@@ -19,10 +21,12 @@ public class MoralDilemmaModel {
     private String option3;
     private String option4;
 
-    public MoralDilemmaModel(int qfont, int optfont, int btnGap, String question, int imgId, String opt1, String opt2, String opt3, String opt4) {
+    public MoralDilemmaModel(int qfont, int optfont, int btnGap, int analysisOpt, String analysis, String question, int imgId, String opt1, String opt2, String opt3, String opt4) {
         this.qFontSize = qfont;
         this.optFontSize = optfont;
         this.btnGap = btnGap;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.question = question;
         this.imgResId = imgId;
         this.option1 = opt1;
@@ -40,6 +44,8 @@ public class MoralDilemmaModel {
     public String getQuestion() {
         return this.question;
     }
+    public int getAnalysisOpt() { return this.analysisOpt; }
+    public String getAnalysis() { return this.analysis; }
     public Integer getImageResId() {
         return this.imgResId;
     }

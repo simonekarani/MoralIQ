@@ -33,8 +33,6 @@ import com.simonekarani.moraliq.selfdriving.MoralMachineResult;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralDilemmaActivity extends AppCompatActivity {
 
-    private static final int MAX_DILEMMA_COUNT = 15;
+    private static final int MAX_DILEMMA_COUNT = 5;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -58,7 +56,7 @@ public class MoralDilemmaActivity extends AppCompatActivity {
     private RadioButton dilemmaOptBtn3 = null;
     private RadioButton dilemmaOptBtn4 = null;
 
-    private List<MoralDilemmaResult> mDilemmaResultList = new ArrayList<>();
+    private ArrayList<MoralDilemmaResult> mDilemmaResultList = new ArrayList<>();
     private Set<Integer> mDilemmaDataSet = new HashSet<>();
     private int userResultCount = 0;
     private int currDilemmaDataIdx = -1;
@@ -104,6 +102,9 @@ public class MoralDilemmaActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, MDilemmaResultActivity.class);
+            Bundle resultBundle = new Bundle();
+            resultBundle.putParcelableArrayList("dilemmaResult", mDilemmaResultList);
+            intent.putExtras(resultBundle);
             startActivity(intent);
         }
     }
