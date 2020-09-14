@@ -6,28 +6,34 @@ public class MedicalEthicalModel {
     private int imageResId;
     private int buttonCount;
     private int optFontSize;
+    private int analysisOpt;
+    private String analysis;
     private String option1;
     private String option2;
     private String option3;
     private String option4;
 
-    public MedicalEthicalModel(String question, int qFont, int resId, int optFont, String opt1, String opt2, String opt3) {
+    public MedicalEthicalModel(String question, int qFont, int resId, int optFont, int analysisOpt, String analysis, String opt1, String opt2, String opt3) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 3;
         this.optFontSize = optFont;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
     }
 
-    public MedicalEthicalModel(String question, int qFont, int resId, int optFont, String opt1, String opt2, String opt3, String opt4) {
+    public MedicalEthicalModel(String question, int qFont, int resId, int optFont, int analysisOpt, String analysis, String opt1, String opt2, String opt3, String opt4) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 4;
         this.optFontSize = optFont;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
@@ -39,6 +45,8 @@ public class MedicalEthicalModel {
     public int getImageResId() { return this.imageResId; }
     public int getButtonCount() { return this.buttonCount; }
     public int getOptionFontSize() { return this.optFontSize; }
+    public int getAnalysisOpt() { return this.analysisOpt; }
+    public String getAnalysis() { return this.analysis; }
     public String getOption1() { return this.option1; }
     public String getOption2() { return this.option2; }
     public String getOption3() { return this.option3; }

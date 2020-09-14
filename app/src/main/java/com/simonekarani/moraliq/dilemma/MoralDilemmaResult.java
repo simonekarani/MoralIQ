@@ -31,7 +31,6 @@ public class MoralDilemmaResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int arg1) {
-        // TODO Auto-generated method stub
         dest.writeInt(dilemmaIdx);
         dest.writeInt(userOptIdx);
     }

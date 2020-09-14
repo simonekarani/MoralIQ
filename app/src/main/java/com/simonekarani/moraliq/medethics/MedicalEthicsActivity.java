@@ -20,6 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
+import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class MedicalEthicsActivity extends AppCompatActivity {
     private RadioButton medOptBtn3 = null;
     private RadioButton medOptBtn4 = null;
 
-    private List<MedEthicalResult> medEthicalResultList = new ArrayList<>();
+    private ArrayList<MedEthicalResult> medEthicalResultList = new ArrayList<>();
     private Set<Integer> medEthicalDataSet = new HashSet<>();
     private int userResultCount = 0;
     private int currMedDataIdx = -1;
@@ -95,6 +96,9 @@ public class MedicalEthicsActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, MedEthicalResultActivity.class);
+            Bundle resultBundle = new Bundle();
+            resultBundle.putParcelableArrayList("medEthicalResult", medEthicalResultList);
+            intent.putExtras(resultBundle);
             startActivity(intent);
         }
     }

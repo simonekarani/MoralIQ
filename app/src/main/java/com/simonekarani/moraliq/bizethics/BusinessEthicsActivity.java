@@ -48,7 +48,7 @@ public class BusinessEthicsActivity extends AppCompatActivity {
     private RadioButton bizthicsOptBtn3 = null;
     private RadioButton bizthicsOptBtn4 = null;
 
-    private List<BusinessEthicsResult> mBizthicsResultList = new ArrayList<>();
+    private ArrayList<BusinessEthicsResult> mBizthicsResultList = new ArrayList<>();
     private Set<Integer> mBizthicsDataSet = new HashSet<>();
     private int userResultCount = 0;
     private int currBizthicsDataIdx = -1;
@@ -71,7 +71,7 @@ public class BusinessEthicsActivity extends AppCompatActivity {
         bizthicsOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
         bizthicsOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
 
-        myOnClickListener = (View.OnClickListener) new BusinessEthicsActivity.MyOnClickListener(this);
+        myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
         bizthicsOptBtn1.setOnClickListener(myOnClickListener);
         bizthicsOptBtn2.setOnClickListener(myOnClickListener);
         bizthicsOptBtn3.setOnClickListener(myOnClickListener);
@@ -94,15 +94,18 @@ public class BusinessEthicsActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, BusinessEthicsResultActivity.class);
+            Bundle resultBundle = new Bundle();
+            resultBundle.putParcelableArrayList("bizEthicsResult", mBizthicsResultList);
+            intent.putExtras(resultBundle);
             startActivity(intent);
         }
     }
 
     private void updateDilemmaView() {
-        /*do {
-            currDilemmaDataIdx = (int)(BusinessEthicsData.BizEthicsDataList.length * Math.random());
-        } while (mBizthicsDataSet.contains(currDilemmaDataIdx));
-        mBizthicsDataSet.add(currDilemmaDataIdx);*/
+        do {
+            currBizthicsDataIdx = (int)(BusinessEthicsData.BizEthicsDataList.length * Math.random());
+        } while (mBizthicsDataSet.contains(currBizthicsDataIdx));
+        mBizthicsDataSet.add(currBizthicsDataIdx);
         BusinessEthicsModel bizthicsData = BusinessEthicsData.BizEthicsDataList[currBizthicsDataIdx];
 
         bizthicsTextView.setTextSize(bizthicsData.getQuestionFontSize());
@@ -156,7 +159,6 @@ public class BusinessEthicsActivity extends AppCompatActivity {
             BusinessEthicsResult result = new BusinessEthicsResult(currBizthicsDataIdx, selectedOptIdx);
             mBizthicsResultList.add(result);
             userResultCount++;
-            currBizthicsDataIdx++;
             onRestart();
         }
     }

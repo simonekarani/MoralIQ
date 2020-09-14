@@ -29,7 +29,6 @@ public class MDilemmaResultActivity extends AppCompatActivity {
 
         dilemmaResults = (ListView) findViewById(R.id.dilemmaResultList);
         dilemmaResults.setSelector(android.R.color.transparent);
-        ArrayList<String> questionList = new ArrayList<String>();
         final MDilemmaResultAdapter adapter = new MDilemmaResultAdapter(resultList, getApplicationContext());
         dilemmaResults.setAdapter(adapter);
     }

@@ -14,30 +14,36 @@ public class TechEthicsModel {
     private String question;
     private Integer imageResId;
     private int buttonCount;
+    private int analysisOpt;
+    private String analysis;
     private String option1;
     private String option2;
     private String option3;
     private String option4;
 
-    public TechEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, String opt1, String opt2, String opt3) {
+    public TechEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, int analysisOpt, String analysis, String opt1, String opt2, String opt3) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 3;
         this.optFontSize = optFont;
         this.btnGap = btnGap;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
     }
 
-    public TechEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, String opt1, String opt2, String opt3, String opt4) {
+    public TechEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, int analysisOpt, String analysis, String opt1, String opt2, String opt3, String opt4) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 3;
         this.optFontSize = optFont;
         this.btnGap = btnGap;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
@@ -56,6 +62,8 @@ public class TechEthicsModel {
     public Integer getImageResId() {
         return this.imageResId;
     }
+    public int getAnalysisOpt() { return this.analysisOpt; }
+    public String getAnalysis() { return this.analysis; }
     public String getOption1() {
         return this.option1;
     }

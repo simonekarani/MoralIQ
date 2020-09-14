@@ -25,6 +25,7 @@ import com.simonekarani.moraliq.dilemma.MoralDilemmaActivity;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
+import com.simonekarani.moraliq.medethics.MedEthicalResultActivity;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class TechEthicsActivity extends AppCompatActivity {
     private RadioButton techthicsOptBtn3 = null;
     private RadioButton techthicsOptBtn4 = null;
 
-    private List<TechEthicsResult> mTechthicsResultList = new ArrayList<>();
+    private ArrayList<TechEthicsResult> mTechthicsResultList = new ArrayList<>();
     private Set<Integer> mTechthicsDataSet = new HashSet<>();
     private int userResultCount = 0;
     private int currDilemmaDataIdx = -1;
@@ -99,6 +100,9 @@ public class TechEthicsActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, TechEthicsResultActivity.class);
+            Bundle resultBundle = new Bundle();
+            resultBundle.putParcelableArrayList("techEthicalResult", mTechthicsResultList);
+            intent.putExtras(resultBundle);
             startActivity(intent);
         }
     }

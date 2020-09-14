@@ -13,6 +13,8 @@ public class BusinessEthicsModel {
     private int optFontSize;
     private int btnGap;
     private String question;
+    private int analysisOpt;
+    private String analysis;
     private Integer imageResId;
     private int buttonCount;
     private String option1;
@@ -20,25 +22,29 @@ public class BusinessEthicsModel {
     private String option3;
     private String option4;
 
-    public BusinessEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, String opt1, String opt2, String opt3) {
+    public BusinessEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, int analysisOpt, String analysis, String opt1, String opt2, String opt3) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 3;
         this.optFontSize = optFont;
         this.btnGap = btnGap;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
     }
 
-    public BusinessEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, String opt1, String opt2, String opt3, String opt4) {
+    public BusinessEthicsModel(String question, int qFont, int resId, int optFont, int btnGap, int analysisOpt, String analysis, String opt1, String opt2, String opt3, String opt4) {
         this.question = question;
         this.questionFontSize = qFont;
         this.imageResId = resId;
         this.buttonCount = 3;
         this.optFontSize = optFont;
         this.btnGap = btnGap;
+        this.analysisOpt = analysisOpt;
+        this.analysis = analysis;
         this.option1 = opt1;
         this.option2 = opt2;
         this.option3 = opt3;
@@ -51,6 +57,8 @@ public class BusinessEthicsModel {
         return this.optFontSize;
     }
     public int getBtnGap() { return this.btnGap; }
+    public int getAnalysisOpt() { return this.analysisOpt; }
+    public String getAnalysis() { return this.analysis; }
     public String getQuestion() {
         return this.question;
     }
