@@ -8,8 +8,11 @@
 
 package com.simonekarani.moraliq;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -38,6 +41,14 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
 
     private static final String TAG = "MainActivity";
 
+    private final String APP_PREFS_NAME = "simonekarani.MyMoralIQ";
+    private final static String MORALIQ_TERMS = "The MoralIQ application is a scenario based dilemma questionnaires.\n\n" +
+            "The views expressed are based on high school girl - Simone Karani. The application is built in a gaming format to test " +
+            "\"Are you morally smarter than a 5th grader?\"\n\nMy Thoughts:\n" +
+            "- Morals and values are guiding principles of human character\n" +
+            "- Environment needs to be protected for our society and well-being for our future generation\n\n" +
+            "Note: For specialist advise, please reach out to Psychologist for consultation";
+
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
@@ -47,6 +58,35 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(APP_PREFS_NAME, 0);
+        if (sharedPreferences.getBoolean("moraliq_first_time", true)) {
+            final SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            new AlertDialog.Builder(this)
+                    .setTitle("MoralIQ Terms of Use")
+                    .setMessage(MORALIQ_TERMS)
+                    .setPositiveButton("AGREE", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();  /// here you save a boolean value ,
+                            editor.putBoolean("agreed",true);
+                            editor.apply();
+                        }
+                    })
+                    .setNegativeButton("DISAGREE", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            editor.putBoolean("agreed",false);
+                            editor.apply();
+                            finish();
+                        }
+                    })
+                    .setIcon(R.drawable.moraliq_terms)
+                    .setCancelable(false)
+                    .show();
+
+            sharedPreferences.edit().putBoolean("moraliq_first_time", false).commit();
+        }
+
         setContentView(R.layout.activity_main);
 
         myOnClickListener = new MyOnClickListener(this);
