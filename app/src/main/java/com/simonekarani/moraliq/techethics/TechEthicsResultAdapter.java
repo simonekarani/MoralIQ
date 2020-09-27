@@ -1,6 +1,7 @@
 package com.simonekarani.moraliq.techethics;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.simonekarani.moraliq.medethics.MedicalEthicalModel;
 import java.util.ArrayList;
 
 public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
+    private final static String WRONG_KEYWORD = " (Wrong)";
+
     private ArrayList<TechEthicsResult> dataSet;
     Context mContext;
 
@@ -74,36 +77,128 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
 
         int dataListIdx = dataModel.getTechEthicsIdx();
         int userSelectionIdx = dataModel.getUserOptIdx();
-        MedicalEthicalModel reqData = MedicalEthicalData.MED_ETHICAL_DATA_LIST[dataListIdx];
+        TechEthicsModel reqData = TechEthicsData.TechEthicsDataList[dataListIdx];
         for (int i = 0; i < 4; i++) {
             switch (i) {
                 case 0: viewHolder.qSelection1.setText(reqData.getOption1());
-                    viewHolder.qSelection1.setClickable(false);
                     if (i == userSelectionIdx) {
+                        if (userSelectionIdx == reqData.getAnalysisOpt()) {
+                            viewHolder.qSelection1.setText(reqData.getOption1());
+                            viewHolder.qSelection1.setTextColor(Color.parseColor("#000000"));
+                            viewHolder.qSelection1.setTypeface(null, Typeface.BOLD);
+                        }
+                        else {
+                            String textDisplay = reqData.getOption1() + WRONG_KEYWORD;
+                            viewHolder.qSelection1.setTypeface(null, Typeface.NORMAL);
+                            viewHolder.qSelection1.setText(textDisplay);
+                            viewHolder.qSelection1.setTextColor(Color.parseColor("#ba160c"));
+                        }
+                        viewHolder.qSelection1.setHighlightColor(Color.parseColor("#ba160c"));
                         viewHolder.qSelection1.setChecked(true);
-                        viewHolder.qSelection1.setTypeface(null, Typeface.BOLD);
                     }
+                    else if (i == reqData.getAnalysisOpt()) {
+                        viewHolder.qSelection1.setText(reqData.getOption1());
+                        viewHolder.qSelection1.setTypeface(null, Typeface.BOLD);
+                        viewHolder.qSelection1.setTextColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection1.setHighlightColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection1.setChecked(true);
+                    }
+                    else {
+                        viewHolder.qSelection1.setChecked(false);
+                        viewHolder.qSelection1.setTypeface(null, Typeface.NORMAL);
+                        viewHolder.qSelection1.setText(reqData.getOption1());
+                    }
+                    viewHolder.qSelection1.setClickable(false);
                     break;
                 case 1: viewHolder.qSelection2.setText(reqData.getOption2());
-                    viewHolder.qSelection2.setClickable(false);
                     if (i == userSelectionIdx) {
+                        if (userSelectionIdx == reqData.getAnalysisOpt()) {
+                            viewHolder.qSelection2.setText(reqData.getOption2());
+                            viewHolder.qSelection2.setTextColor(Color.parseColor("#000000"));
+                            viewHolder.qSelection2.setTypeface(null, Typeface.BOLD);
+                        }
+                        else {
+                            String textDisplay = reqData.getOption2() + WRONG_KEYWORD;
+                            viewHolder.qSelection2.setTypeface(null, Typeface.NORMAL);
+                            viewHolder.qSelection2.setText(textDisplay);
+                            viewHolder.qSelection2.setTextColor(Color.parseColor("#ba160c"));
+                        }
+                        viewHolder.qSelection2.setHighlightColor(Color.parseColor("#ba160c"));
                         viewHolder.qSelection2.setChecked(true);
-                        viewHolder.qSelection2.setTypeface(null, Typeface.BOLD);
                     }
+                    else if (i == reqData.getAnalysisOpt()) {
+                        viewHolder.qSelection2.setText(reqData.getOption2());
+                        viewHolder.qSelection2.setTextColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection2.setTypeface(null, Typeface.BOLD);
+                        viewHolder.qSelection2.setHighlightColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection2.setChecked(true);
+                    }
+                    else {
+                        viewHolder.qSelection2.setChecked(false);
+                        viewHolder.qSelection2.setTypeface(null, Typeface.NORMAL);
+                        viewHolder.qSelection2.setText(reqData.getOption2());
+                    }
+                    viewHolder.qSelection2.setClickable(false);
                     break;
                 case 2: viewHolder.qSelection3.setText(reqData.getOption3());
-                    viewHolder.qSelection3.setClickable(false);
                     if (i == userSelectionIdx) {
+                        if (userSelectionIdx == reqData.getAnalysisOpt()) {
+                            viewHolder.qSelection3.setText(reqData.getOption3());
+                            viewHolder.qSelection3.setTextColor(Color.parseColor("#000000"));
+                            viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
+                        }
+                        else {
+                            String textDisplay = reqData.getOption3() + WRONG_KEYWORD;
+                            viewHolder.qSelection3.setTypeface(null, Typeface.NORMAL);
+                            viewHolder.qSelection3.setText(textDisplay);
+                            viewHolder.qSelection3.setTextColor(Color.parseColor("#ba160c"));
+                        }
+                        viewHolder.qSelection3.setHighlightColor(Color.parseColor("#ba160c"));
                         viewHolder.qSelection3.setChecked(true);
-                        viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
                     }
+                    else if (i == reqData.getAnalysisOpt()) {
+                        viewHolder.qSelection3.setText(reqData.getOption3());
+                        viewHolder.qSelection3.setTextColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
+                        viewHolder.qSelection3.setHighlightColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection3.setChecked(true);
+                    }
+                    else {
+                        viewHolder.qSelection3.setChecked(false);
+                        viewHolder.qSelection3.setTypeface(null, Typeface.NORMAL);
+                        viewHolder.qSelection3.setText(reqData.getOption3());
+                    }
+                    viewHolder.qSelection3.setClickable(false);
                     break;
                 case 3: viewHolder.qSelection4.setText(reqData.getOption4());
-                    viewHolder.qSelection4.setClickable(false);
                     if (i == userSelectionIdx) {
+                        if (userSelectionIdx == reqData.getAnalysisOpt()) {
+                            viewHolder.qSelection4.setText(reqData.getOption4());
+                            viewHolder.qSelection4.setTextColor(Color.parseColor("#000000"));
+                            viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
+                        }
+                        else {
+                            String textDisplay = reqData.getOption4() + WRONG_KEYWORD;
+                            viewHolder.qSelection4.setTypeface(null, Typeface.NORMAL);
+                            viewHolder.qSelection4.setText(textDisplay);
+                            viewHolder.qSelection4.setTextColor(Color.parseColor("#ba160c"));
+                        }
+                        viewHolder.qSelection4.setHighlightColor(Color.parseColor("#ba160c"));
                         viewHolder.qSelection4.setChecked(true);
-                        viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
                     }
+                    else if (i == reqData.getAnalysisOpt()) {
+                        viewHolder.qSelection4.setText(reqData.getOption4());
+                        viewHolder.qSelection4.setTextColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
+                        viewHolder.qSelection4.setHighlightColor(Color.parseColor("#0000ff"));
+                        viewHolder.qSelection4.setChecked(true);
+                    }
+                    else {
+                        viewHolder.qSelection4.setChecked(false);
+                        viewHolder.qSelection4.setTypeface(null, Typeface.NORMAL);
+                        viewHolder.qSelection4.setText(reqData.getOption4());
+                    }
+                    viewHolder.qSelection4.setClickable(false);
                     break;
             }
         }

@@ -32,7 +32,7 @@ public class TechEthicsResultActivity extends AppCompatActivity {
         ArrayList<TechEthicsResult> resultList = resBundle.getParcelableArrayList("techEthicalResult");
 
         techEthicsResultMsg = (TextView) findViewById(R.id.techthicsResultMsg);
-        setDilemmaResultMsg(resultList);
+        setTechEthicsResultMsg(resultList);
 
         techEthicsResults = (ListView) findViewById(R.id.techthicsResultList);
         techEthicsResults.setSelector(android.R.color.transparent);
@@ -40,8 +40,8 @@ public class TechEthicsResultActivity extends AppCompatActivity {
         techEthicsResults.setAdapter(adapter);
     }
 
-    public void setDilemmaResultMsg(ArrayList<TechEthicsResult> resultList) {
-        String resultMsg = "Congratulations, you have completed \"Medical Ethics\" quiz, and you scored ";
+    public void setTechEthicsResultMsg(ArrayList<TechEthicsResult> resultList) {
+        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -53,14 +53,13 @@ public class TechEthicsResultActivity extends AppCompatActivity {
             }
         }
         resultMsg += "" + moralCnt + "/" + totalCnt;
-        String msgValue = "oohhh...";
+        String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
             msgValue = "Fabulous";
         else if (resultValue > 0.3)
             msgValue = "Groovy";
-        resultMsg += ". The high school wisdom says " + msgValue + "\n";
-        resultMsg += "Below are your selections with Analysis";
+        resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
         techEthicsResultMsg.setText(resultMsg);
     }
 }
