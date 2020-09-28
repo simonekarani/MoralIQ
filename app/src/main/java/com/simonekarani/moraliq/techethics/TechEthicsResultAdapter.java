@@ -11,9 +11,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.medethics.MedEthicalResult;
-import com.simonekarani.moraliq.medethics.MedicalEthicalData;
-import com.simonekarani.moraliq.medethics.MedicalEthicalModel;
 
 import java.util.ArrayList;
 

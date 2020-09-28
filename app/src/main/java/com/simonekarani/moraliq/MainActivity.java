@@ -13,11 +13,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.bizethics.BusinessEthicsActivity;
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adjustFontScale(getResources().getConfiguration());
 
         SharedPreferences sharedPreferences = getSharedPreferences(APP_PREFS_NAME, 0);
         if (sharedPreferences.getBoolean("moraliq_first_time", true)) {
@@ -162,5 +166,15 @@ public class MainActivity extends AppCompatActivity implements MainScreenDataAda
                 break;
         }
         startActivity(intent);
+    }
+
+    public void adjustFontScale(Configuration configuration)
+    {
+        configuration.fontScale = (float) 1.0;
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        metrics.scaledDensity = configuration.fontScale * metrics.density;
+        getBaseContext().getResources().updateConfiguration(configuration, metrics);
     }
 }

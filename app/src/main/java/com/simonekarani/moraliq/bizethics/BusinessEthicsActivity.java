@@ -32,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BusinessEthicsActivity extends AppCompatActivity {
 
-    private static final int MAX_BIZTHICS_COUNT = 25;
+    private static final int MAX_BIZTHICS_COUNT = 7;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
