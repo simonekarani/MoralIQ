@@ -33,7 +33,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MedicalEthicsActivity extends AppCompatActivity {
 
-    private static final int MAX_MED_ETHICAL_COUNT = 15;
+    private static final int MAX_MED_ETHICAL_COUNT = 7;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
