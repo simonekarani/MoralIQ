@@ -41,10 +41,10 @@
                 android:layout_marginRight="5dp"
                 android:scaleType="fitXY"
                 android:button="@null"
-                android:drawableTop="@drawable/driving1a"
+                android:background="@drawable/driving1a"
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="RadioButton" />
+                android:text="" />
 
             <RadioButton
                 android:id="@+id/drivingOptAnswer2"
@@ -54,10 +54,10 @@
                 android:scaleType="fitXY"
                 android:layout_marginLeft="5dp"
                 android:button="@null"
-                android:drawableTop="@drawable/driving1b"
+                android:background="@drawable/driving1b"
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="RadioButton" />
+                android:text="" />
 
         </RadioGroup>
 

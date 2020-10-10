@@ -149,7 +149,11 @@ public class MoralMachineActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             mMachineTestCount++;
-            MoralMachineResult result = new MoralMachineResult(currMachineDataIdx, 1);
+            int userSelectionIdx = 0;
+            if (v == drivingOpt2ImageBtn || v == drivingOpt2TextBtn) {
+                userSelectionIdx = 1;
+            }
+            MoralMachineResult result = new MoralMachineResult(currMachineDataIdx, userSelectionIdx);
             moralMachineResultList.add(result);
             onRestart();
         }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -66,8 +67,40 @@ public class MMachineResultAdapter extends ArrayAdapter<MoralMachineResult> {
         int dataListIdx = dataModel.getmMachineDataIdx();
         int userSelectionIdx = dataModel.getUserOptIdx();
         MoralMachineModel reqData = MoralMachineData.MoralMachineDataList[dataListIdx];
-        viewHolder.drivingOpt1.setButtonDrawable(reqData.getOption1ResId());
-        viewHolder.drivingOpt2.setButtonDrawable(reqData.getOption2ResId());
+        viewHolder.drivingOpt1.setBackground(
+                convertView.getResources().getDrawable(reqData.getOption1ResId(), null));
+        viewHolder.drivingOpt2.setBackground(
+                convertView.getResources().getDrawable(reqData.getOption2ResId(), null));
+        if (userSelectionIdx == 0) {
+            if (reqData.getAnalysisOptId() == 0) {
+                viewHolder.drivingOpt1.setText("Your Selection (Correct)");
+                viewHolder.drivingOpt1.setTextColor(Color.GREEN);
+
+                viewHolder.drivingOpt2.setText("");
+            }
+            else {
+                viewHolder.drivingOpt1.setText("Your Selection (Wrong)");
+                viewHolder.drivingOpt1.setTextColor(Color.MAGENTA);
+
+                viewHolder.drivingOpt2.setText("Correct");
+                viewHolder.drivingOpt2.setTextColor(Color.GREEN);
+            }
+        }
+        else {
+            if (reqData.getAnalysisOptId() == 0) {
+                viewHolder.drivingOpt1.setText("Correct");
+                viewHolder.drivingOpt1.setTextColor(Color.GREEN);
+
+                viewHolder.drivingOpt2.setText("Your Selection (Wrong)");
+                viewHolder.drivingOpt2.setTextColor(Color.MAGENTA);
+            }
+            else {
+                viewHolder.drivingOpt1.setText("");
+
+                viewHolder.drivingOpt2.setText("Your Selection (Correct)");
+                viewHolder.drivingOpt2.setTextColor(Color.GREEN);
+            }
+        }
 
         viewHolder.qAnalysisText.setText("Analysis:");
         viewHolder.qAnalysis.setText(reqData.getAnalysis());
