@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
+import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaActivity;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
 import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
@@ -39,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralMachineActivity extends AppCompatActivity {
 
-    private static final int MAX_MMACHINE_COUNT = 15;
+    private static final int MAX_MMACHINE_COUNT = 3;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -55,7 +56,7 @@ public class MoralMachineActivity extends AppCompatActivity {
     private int userResultCount = 0;
     private int currMachineDataIdx = -1;
     private int mMachineTestCount = 0;
-    private List<MoralMachineResult> moralMachineResultList = new ArrayList<>();
+    private ArrayList<MoralMachineResult> moralMachineResultList = new ArrayList<>();
     private Set<Integer> mMachineDataSet = new HashSet<>();
 
     @Override
@@ -93,6 +94,9 @@ public class MoralMachineActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, MMachineResultActivity.class);
+            Bundle resultBundle = new Bundle();
+            resultBundle.putParcelableArrayList("drivingResult", moralMachineResultList);
+            intent.putExtras(resultBundle);
             startActivity(intent);
         }
     }

@@ -5,6 +5,33 @@ import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
 
 public class MoralMachineData {
 
+    public static final String MMachineAnalysis1  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis2  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis3  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis4  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis5  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis6  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis7  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis8  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis9  = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis10 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis11 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis12 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis13 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis14 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis15 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis16 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis17 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis18 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis19 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis20 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis21 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis22 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis23 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis24 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis25 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+    public static final String MMachineAnalysis26 = "Re-gifting is the process of getting a gift, and then giving that gift to someone else. It's generally frowned upon because it shows that you didn't really appreciate that gift and you don't care about the person who gave it to you.";
+
     public static final String Instr1a = "Brake failure will swerve and crash into a concrete barrier.\nDead:\n• 1 male athlete\n• 3 female athletes\n• 1 woman";
     public static final String Instr1b = "Brake failure will continue ahead and drive through pedestrians crossing ahead.\nDead:\n• 4 homeless people\n• 1 man";
     public static final String Instr2a = "Brake failure will swerve and drive through pedestrians crossing ahead.\nDead:\n• 2 man";
@@ -58,32 +85,32 @@ public class MoralMachineData {
     public static final String Instr26a = "Brake failure will continue ahead and drive through pedestrians crossing ahead.\nDead:\n• 1 female\nNote that the affected pedestrians are flouting by the law by crossing on the red signal.";
     public static final String Instr26b = "Brake failure will swerve and drive through pedestrians crossing ahead.\nDead:\n• 1 homeless person\nNote that the affected pedestrians are abiding by the law by crossing on the green signal.";
 
-    public static final MoralMachineModel MMachine1  = new MoralMachineModel(18, Instr1a,  R.drawable.driving1a,  Instr1b,  R.drawable.driving1b);
-    public static final MoralMachineModel MMachine2  = new MoralMachineModel(18, Instr2a,  R.drawable.driving2a,  Instr2b,  R.drawable.driving2b);
-    public static final MoralMachineModel MMachine3  = new MoralMachineModel(14, Instr3a,  R.drawable.driving3a,  Instr3b,  R.drawable.driving3b);
-    public static final MoralMachineModel MMachine4  = new MoralMachineModel(18, Instr4a,  R.drawable.driving4a,  Instr4b,  R.drawable.driving4b);
-    public static final MoralMachineModel MMachine5  = new MoralMachineModel(16, Instr5a,  R.drawable.driving5a,  Instr5b,  R.drawable.driving5b);
-    public static final MoralMachineModel MMachine6  = new MoralMachineModel(18, Instr6a,  R.drawable.driving6a,  Instr6b,  R.drawable.driving6b);
-    public static final MoralMachineModel MMachine7  = new MoralMachineModel(18, Instr7a,  R.drawable.driving7a,  Instr7b,  R.drawable.driving7b);
-    public static final MoralMachineModel MMachine8  = new MoralMachineModel(18, Instr8a,  R.drawable.driving8a,  Instr8b,  R.drawable.driving8b);
-    public static final MoralMachineModel MMachine9  = new MoralMachineModel(18, Instr9a,  R.drawable.driving9a,  Instr9b,  R.drawable.driving9b);
-    public static final MoralMachineModel MMachine10 = new MoralMachineModel(16, Instr10a, R.drawable.driving10a, Instr10b, R.drawable.driving10b);
-    public static final MoralMachineModel MMachine11 = new MoralMachineModel(18, Instr11a, R.drawable.driving11a, Instr11b, R.drawable.driving11b);
-    public static final MoralMachineModel MMachine12 = new MoralMachineModel(16, Instr12a, R.drawable.driving12a, Instr12b, R.drawable.driving12b);
-    public static final MoralMachineModel MMachine13 = new MoralMachineModel(14, Instr13a, R.drawable.driving13a, Instr13b, R.drawable.driving13b);
-    public static final MoralMachineModel MMachine14 = new MoralMachineModel(14, Instr14a, R.drawable.driving14a, Instr14b, R.drawable.driving14b);
-    public static final MoralMachineModel MMachine15 = new MoralMachineModel(17, Instr15a, R.drawable.driving15a, Instr15b, R.drawable.driving15b);
-    public static final MoralMachineModel MMachine16 = new MoralMachineModel(15, Instr16a, R.drawable.driving16a, Instr16b, R.drawable.driving16b);
-    public static final MoralMachineModel MMachine17 = new MoralMachineModel(15, Instr17a, R.drawable.driving17a, Instr17b, R.drawable.driving17b);
-    public static final MoralMachineModel MMachine18 = new MoralMachineModel(18, Instr20a, R.drawable.driving18a, Instr20b, R.drawable.driving18b);
-    public static final MoralMachineModel MMachine19 = new MoralMachineModel(15, Instr19a, R.drawable.driving19a, Instr19b, R.drawable.driving19b);
-    public static final MoralMachineModel MMachine20 = new MoralMachineModel(18, Instr20a, R.drawable.driving20a, Instr20b, R.drawable.driving20b);
-    public static final MoralMachineModel MMachine21 = new MoralMachineModel(15, Instr21a, R.drawable.driving21a, Instr21b, R.drawable.driving21b);
-    public static final MoralMachineModel MMachine22 = new MoralMachineModel(15, Instr22a, R.drawable.driving22a, Instr22b, R.drawable.driving22b);
-    public static final MoralMachineModel MMachine23 = new MoralMachineModel(15, Instr23a, R.drawable.driving23a, Instr23b, R.drawable.driving23b);
-    public static final MoralMachineModel MMachine24 = new MoralMachineModel(16, Instr24a, R.drawable.driving24a, Instr24b, R.drawable.driving24b);
-    public static final MoralMachineModel MMachine25 = new MoralMachineModel(15, Instr25a, R.drawable.driving25a, Instr25b, R.drawable.driving25b);
-    public static final MoralMachineModel MMachine26 = new MoralMachineModel(16, Instr26a, R.drawable.driving26a, Instr26b, R.drawable.driving26b);
+    public static final MoralMachineModel MMachine1  = new MoralMachineModel(18, Instr1a,  R.drawable.driving1a,  Instr1b,  R.drawable.driving1b, 1, MMachineAnalysis1);
+    public static final MoralMachineModel MMachine2  = new MoralMachineModel(18, Instr2a,  R.drawable.driving2a,  Instr2b,  R.drawable.driving2b, 1, MMachineAnalysis2);
+    public static final MoralMachineModel MMachine3  = new MoralMachineModel(14, Instr3a,  R.drawable.driving3a,  Instr3b,  R.drawable.driving3b, 1, MMachineAnalysis3);
+    public static final MoralMachineModel MMachine4  = new MoralMachineModel(18, Instr4a,  R.drawable.driving4a,  Instr4b,  R.drawable.driving4b, 1, MMachineAnalysis4);
+    public static final MoralMachineModel MMachine5  = new MoralMachineModel(16, Instr5a,  R.drawable.driving5a,  Instr5b,  R.drawable.driving5b, 1, MMachineAnalysis5);
+    public static final MoralMachineModel MMachine6  = new MoralMachineModel(18, Instr6a,  R.drawable.driving6a,  Instr6b,  R.drawable.driving6b, 1, MMachineAnalysis6);
+    public static final MoralMachineModel MMachine7  = new MoralMachineModel(18, Instr7a,  R.drawable.driving7a,  Instr7b,  R.drawable.driving7b, 1, MMachineAnalysis7);
+    public static final MoralMachineModel MMachine8  = new MoralMachineModel(18, Instr8a,  R.drawable.driving8a,  Instr8b,  R.drawable.driving8b, 1, MMachineAnalysis8);
+    public static final MoralMachineModel MMachine9  = new MoralMachineModel(18, Instr9a,  R.drawable.driving9a,  Instr9b,  R.drawable.driving9b, 1, MMachineAnalysis9);
+    public static final MoralMachineModel MMachine10 = new MoralMachineModel(16, Instr10a, R.drawable.driving10a, Instr10b, R.drawable.driving10b,1, MMachineAnalysis10);
+    public static final MoralMachineModel MMachine11 = new MoralMachineModel(18, Instr11a, R.drawable.driving11a, Instr11b, R.drawable.driving11b, 1, MMachineAnalysis11);
+    public static final MoralMachineModel MMachine12 = new MoralMachineModel(16, Instr12a, R.drawable.driving12a, Instr12b, R.drawable.driving12b, 1, MMachineAnalysis12);
+    public static final MoralMachineModel MMachine13 = new MoralMachineModel(14, Instr13a, R.drawable.driving13a, Instr13b, R.drawable.driving13b, 1, MMachineAnalysis13);
+    public static final MoralMachineModel MMachine14 = new MoralMachineModel(14, Instr14a, R.drawable.driving14a, Instr14b, R.drawable.driving14b, 1, MMachineAnalysis14);
+    public static final MoralMachineModel MMachine15 = new MoralMachineModel(17, Instr15a, R.drawable.driving15a, Instr15b, R.drawable.driving15b, 1, MMachineAnalysis15);
+    public static final MoralMachineModel MMachine16 = new MoralMachineModel(15, Instr16a, R.drawable.driving16a, Instr16b, R.drawable.driving16b, 1, MMachineAnalysis16);
+    public static final MoralMachineModel MMachine17 = new MoralMachineModel(15, Instr17a, R.drawable.driving17a, Instr17b, R.drawable.driving17b, 1, MMachineAnalysis17);
+    public static final MoralMachineModel MMachine18 = new MoralMachineModel(18, Instr20a, R.drawable.driving18a, Instr20b, R.drawable.driving18b, 1, MMachineAnalysis18);
+    public static final MoralMachineModel MMachine19 = new MoralMachineModel(15, Instr19a, R.drawable.driving19a, Instr19b, R.drawable.driving19b, 1, MMachineAnalysis19);
+    public static final MoralMachineModel MMachine20 = new MoralMachineModel(18, Instr20a, R.drawable.driving20a, Instr20b, R.drawable.driving20b, 1, MMachineAnalysis20);
+    public static final MoralMachineModel MMachine21 = new MoralMachineModel(15, Instr21a, R.drawable.driving21a, Instr21b, R.drawable.driving21b, 1, MMachineAnalysis21);
+    public static final MoralMachineModel MMachine22 = new MoralMachineModel(15, Instr22a, R.drawable.driving22a, Instr22b, R.drawable.driving22b, 1, MMachineAnalysis22);
+    public static final MoralMachineModel MMachine23 = new MoralMachineModel(15, Instr23a, R.drawable.driving23a, Instr23b, R.drawable.driving23b, 1, MMachineAnalysis23);
+    public static final MoralMachineModel MMachine24 = new MoralMachineModel(16, Instr24a, R.drawable.driving24a, Instr24b, R.drawable.driving24b, 1, MMachineAnalysis24);
+    public static final MoralMachineModel MMachine25 = new MoralMachineModel(15, Instr25a, R.drawable.driving25a, Instr25b, R.drawable.driving25b, 1, MMachineAnalysis25);
+    public static final MoralMachineModel MMachine26 = new MoralMachineModel(16, Instr26a, R.drawable.driving26a, Instr26b, R.drawable.driving26b, 1, MMachineAnalysis26);
 
     public static MoralMachineModel[] MoralMachineDataList = {
             MMachine1,  MMachine2,  MMachine3,  MMachine4,  MMachine5,  MMachine6,  MMachine7,
