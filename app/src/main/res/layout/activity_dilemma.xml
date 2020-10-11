@@ -14,6 +14,18 @@
         android:textStyle="bold"
         android:text="Which one?" />
 
+    <TextView
+        android:id="@+id/dilemmaCopyrightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Copyright &#169; THE QUIZ by Sosa Manuel" />
+
     <ImageView
         android:id="@+id/dilemmaImage"
         android:layout_width="match_parent"
