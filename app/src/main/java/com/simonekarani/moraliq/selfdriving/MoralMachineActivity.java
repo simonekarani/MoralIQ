@@ -40,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralMachineActivity extends AppCompatActivity {
 
-    private static final int MAX_MMACHINE_COUNT = 3;
+    private static final int MAX_MMACHINE_COUNT = 5;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -54,7 +54,7 @@ public class MoralMachineActivity extends AppCompatActivity {
     private ImageButton drivingOpt2ImageBtn = null;
 
     private int userResultCount = 0;
-    private int currMachineDataIdx = -1;
+    private int currMachineDataIdx = 8;
     private int mMachineTestCount = 0;
     private ArrayList<MoralMachineResult> moralMachineResultList = new ArrayList<>();
     private Set<Integer> mMachineDataSet = new HashSet<>();
@@ -102,9 +102,10 @@ public class MoralMachineActivity extends AppCompatActivity {
     }
 
     private void updateMoralMachineView() {
-        do {
+        /*do {
             currMachineDataIdx = (int) (MoralMachineData.MoralMachineDataList.length * Math.random());
-        } while (mMachineDataSet.contains(currMachineDataIdx));
+        } while (mMachineDataSet.contains(currMachineDataIdx));*/
+        currMachineDataIdx++;
         mMachineDataSet.add(currMachineDataIdx);
         MoralMachineModel machineData = MoralMachineData.MoralMachineDataList[currMachineDataIdx];
         mMachineDataSet.add(currMachineDataIdx);

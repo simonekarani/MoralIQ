@@ -13,8 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MMachineResultActivity extends AppCompatActivity {
 
+    private final static String DRIVING_ANALYSIS_MSG = "The self driving car is designed to follow " +
+            "the programmed rules without human reflexes, and is aware of the entire scene - " +
+            "obstacles, signals, people in the car, and the pedestrians. Analysis presented here " +
+            "is what a high schooler learns in books. I believe no one should be hurt, but these " +
+            "are constrainted situations where any decision leads to death.";
+
     private ListView drivingResults = null;
     private TextView drivingResultMsg = null;
+    private TextView drivingAnalysisMsg = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,9 @@ public class MMachineResultActivity extends AppCompatActivity {
         ArrayList<MoralMachineResult> resultList = resBundle.getParcelableArrayList("drivingResult");
 
         drivingResultMsg = (TextView) findViewById(R.id.drivingResultMsg);
+        drivingAnalysisMsg = (TextView) findViewById(R.id.drivingAnalysisMsg);
         setMMachineResultMsg(resultList);
+        drivingAnalysisMsg.setText(DRIVING_ANALYSIS_MSG);
 
         drivingResults = (ListView) findViewById(R.id.drivingResultList);
         drivingResults.setSelector(android.R.color.transparent);
