@@ -95,11 +95,18 @@ public class MedEthicalResultAdapter extends ArrayAdapter<MedEthicalResult> {
                         viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
                     }
                     break;
-                case 3: viewHolder.qSelection4.setText(reqData.getOption4());
-                    viewHolder.qSelection4.setClickable(false);
-                    if (i == userSelectionIdx) {
-                        viewHolder.qSelection4.setChecked(true);
-                        viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
+                case 3:
+                    if (reqData.getButtonCount() > 3) {
+                        viewHolder.qSelection4.setVisibility(View.VISIBLE);
+                        viewHolder.qSelection4.setText(reqData.getOption4());
+                        viewHolder.qSelection4.setClickable(false);
+                        if (i == userSelectionIdx) {
+                            viewHolder.qSelection4.setChecked(true);
+                            viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
+                        }
+                    }
+                    else {
+                        viewHolder.qSelection4.setVisibility(View.INVISIBLE);
                     }
                     break;
             }

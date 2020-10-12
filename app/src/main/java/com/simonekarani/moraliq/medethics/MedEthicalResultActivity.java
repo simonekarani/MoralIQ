@@ -34,7 +34,7 @@ public class MedEthicalResultActivity extends AppCompatActivity {
     }
 
     public void setDilemmaResultMsg(ArrayList<MedEthicalResult> resultList) {
-        String resultMsg = "Congratulations, you have completed \"Medical Ethics\" quiz, and you scored ";
+        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -46,14 +46,13 @@ public class MedEthicalResultActivity extends AppCompatActivity {
             }
         }
         resultMsg += "" + moralCnt + "/" + totalCnt;
-        String msgValue = "oohhh...";
+        String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
             msgValue = "Fabulous";
         else if (resultValue > 0.3)
             msgValue = "Groovy";
-        resultMsg += ". The high school wisdom says " + msgValue + "\n";
-        resultMsg += "Below are your selections with Analysis";
+        resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
         medEthicsResultMsg.setText(resultMsg);
     }
 }
