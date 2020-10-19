@@ -7,12 +7,24 @@
     <TextView
         android:id="@+id/medEthicalText"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="130dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:textStyle="bold"
         android:text="Which one?" />
+
+    <TextView
+        android:id="@+id/dilemmaCopyrightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Medscape Medical Ethics &#169; 2010 WebMD, LLC" />
 
     <ImageView
         android:id="@+id/medEthicalImage"
