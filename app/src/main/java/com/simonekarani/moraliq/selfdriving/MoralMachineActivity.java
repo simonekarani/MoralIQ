@@ -40,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralMachineActivity extends AppCompatActivity {
 
-    private static final int MAX_MMACHINE_COUNT = 5;
+    private static final int MAX_MMACHINE_COUNT = 7;
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
