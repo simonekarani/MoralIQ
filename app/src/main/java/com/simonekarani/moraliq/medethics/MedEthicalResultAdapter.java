@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RadioButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
@@ -22,10 +22,10 @@ public class MedEthicalResultAdapter extends ArrayAdapter<MedEthicalResult> {
         TextView qText;
         TextView qUser;
         TextView qAnswerText;
-        RadioButton qSelection1;
-        RadioButton qSelection2;
-        RadioButton qSelection3;
-        RadioButton qSelection4;
+        Button qSelection1;
+        Button qSelection2;
+        Button qSelection3;
+        Button qSelection4;
         TextView qAnalysisText;
         TextView qAnalysis;
     }
@@ -54,10 +54,10 @@ public class MedEthicalResultAdapter extends ArrayAdapter<MedEthicalResult> {
             viewHolder.qText = (TextView) convertView.findViewById(R.id.qText);
             viewHolder.qUser = (TextView) convertView.findViewById(R.id.qName);
             viewHolder.qAnswerText = (TextView) convertView.findViewById(R.id.qAnswerText);
-            viewHolder.qSelection1 = (RadioButton) convertView.findViewById(R.id.qOptAnswer1);
-            viewHolder.qSelection2 = (RadioButton) convertView.findViewById(R.id.qOptAnswer2);
-            viewHolder.qSelection3 = (RadioButton) convertView.findViewById(R.id.qOptAnswer3);
-            viewHolder.qSelection4 = (RadioButton) convertView.findViewById(R.id.qOptAnswer4);
+            viewHolder.qSelection1 = (Button) convertView.findViewById(R.id.qOptAnswer1);
+            viewHolder.qSelection2 = (Button) convertView.findViewById(R.id.qOptAnswer2);
+            viewHolder.qSelection3 = (Button) convertView.findViewById(R.id.qOptAnswer3);
+            viewHolder.qSelection4 = (Button) convertView.findViewById(R.id.qOptAnswer4);
             viewHolder.qAnalysisText = (TextView) convertView.findViewById(R.id.qAnalysisText);
             viewHolder.qAnalysis = (TextView) convertView.findViewById(R.id.qAnalysis);
 
@@ -77,21 +77,21 @@ public class MedEthicalResultAdapter extends ArrayAdapter<MedEthicalResult> {
                 case 0: viewHolder.qSelection1.setText(reqData.getOption1());
                     viewHolder.qSelection1.setClickable(false);
                     if (i == userSelectionIdx) {
-                        viewHolder.qSelection1.setChecked(true);
+                        viewHolder.qSelection1.setPressed(true);
                         viewHolder.qSelection1.setTypeface(null, Typeface.BOLD);
                     }
                     break;
                 case 1: viewHolder.qSelection2.setText(reqData.getOption2());
                     viewHolder.qSelection2.setClickable(false);
                     if (i == userSelectionIdx) {
-                        viewHolder.qSelection2.setChecked(true);
+                        viewHolder.qSelection2.setPressed(true);
                         viewHolder.qSelection2.setTypeface(null, Typeface.BOLD);
                     }
                     break;
                 case 2: viewHolder.qSelection3.setText(reqData.getOption3());
                     viewHolder.qSelection3.setClickable(false);
                     if (i == userSelectionIdx) {
-                        viewHolder.qSelection3.setChecked(true);
+                        viewHolder.qSelection3.setPressed(true);
                         viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
                     }
                     break;
@@ -101,7 +101,7 @@ public class MedEthicalResultAdapter extends ArrayAdapter<MedEthicalResult> {
                         viewHolder.qSelection4.setText(reqData.getOption4());
                         viewHolder.qSelection4.setClickable(false);
                         if (i == userSelectionIdx) {
-                            viewHolder.qSelection4.setChecked(true);
+                            viewHolder.qSelection4.setPressed(true);
                             viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
                         }
                     }

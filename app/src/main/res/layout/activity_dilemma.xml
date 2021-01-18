@@ -47,51 +47,62 @@
         android:textStyle="bold"
         android:text="Select one of the below options?" />
 
-   <RadioGroup
-        android:id="@+id/optButtonGroup"
+    <Button
+        android:id="@+id/optButton1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        android:text="RadioButton" />
 
-        <RadioButton
-            android:id="@+id/optButton1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+    <Button
+        android:id="@+id/optButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        android:text="RadioButton" />
 
-        <RadioButton
-            android:id="@+id/optButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+    <Button
+        android:id="@+id/optButton3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        android:text="RadioButton" />
 
-        <RadioButton
-            android:id="@+id/optButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/optButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
-
-    </RadioGroup>
+    <Button
+        android:id="@+id/optButton4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        android:text="RadioButton" />
 
 </LinearLayout>

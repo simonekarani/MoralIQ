@@ -34,7 +34,7 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
         bizethicsResults.setAdapter(adapter);
     }
 
-    public void setDilemmaResultMsg(ArrayList<BusinessEthicsResult> resultList) {
+    private void setDilemmaResultMsg(ArrayList<BusinessEthicsResult> resultList) {
         String resultMsg = "Congratulations\nScore:";
         int totalCnt = resultList.size();
         int moralCnt = 0;
@@ -55,5 +55,9 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
             msgValue = "Groovy";
         resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
         bizethicsResultMsg.setText(resultMsg);
+    }
+
+    private void updateDilemmaResultMsg(ArrayList<BusinessEthicsResult> resultList) {
+
     }
 }

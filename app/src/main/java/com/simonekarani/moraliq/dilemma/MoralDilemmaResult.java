@@ -46,7 +46,7 @@ public class MoralDilemmaResult implements Parcelable {
         }
 
         public MoralDilemmaResult[] newArray(int size) {
-            return new MoralDilemmaResult[size];
+            return new MoralDilemmaResult[1];
         }
     };
 }

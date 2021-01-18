@@ -37,36 +37,52 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black" />
 
-        <RadioButton
+        <Button
             android:id="@+id/qOptAnswer1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|center_vertical"
+            android:background="@android:color/holo_blue_light"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:text="RadioButton" />
 
-        <RadioButton
+        <Button
             android:id="@+id/qOptAnswer2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|center_vertical"
+            android:background="@android:color/holo_blue_light"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:text="RadioButton" />
 
-        <RadioButton
+        <Button
             android:id="@+id/qOptAnswer3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|center_vertical"
+            android:background="@android:color/holo_blue_light"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:text="RadioButton" />
 
-        <RadioButton
+        <Button
             android:id="@+id/qOptAnswer4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|center_vertical"
+            android:background="@android:color/holo_blue_light"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:text="RadioButton" />
 
         <TextView

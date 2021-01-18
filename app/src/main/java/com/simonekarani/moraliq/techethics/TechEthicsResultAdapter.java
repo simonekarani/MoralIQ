@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RadioButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
@@ -25,10 +25,10 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
         TextView qText;
         TextView qUser;
         TextView qAnswerText;
-        RadioButton qSelection1;
-        RadioButton qSelection2;
-        RadioButton qSelection3;
-        RadioButton qSelection4;
+        Button qSelection1;
+        Button qSelection2;
+        Button qSelection3;
+        Button qSelection4;
         TextView qAnalysisText;
         TextView qAnalysis;
     }
@@ -57,10 +57,10 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
             viewHolder.qText = (TextView) convertView.findViewById(R.id.qText);
             viewHolder.qUser = (TextView) convertView.findViewById(R.id.qName);
             viewHolder.qAnswerText = (TextView) convertView.findViewById(R.id.qAnswerText);
-            viewHolder.qSelection1 = (RadioButton) convertView.findViewById(R.id.qOptAnswer1);
-            viewHolder.qSelection2 = (RadioButton) convertView.findViewById(R.id.qOptAnswer2);
-            viewHolder.qSelection3 = (RadioButton) convertView.findViewById(R.id.qOptAnswer3);
-            viewHolder.qSelection4 = (RadioButton) convertView.findViewById(R.id.qOptAnswer4);
+            viewHolder.qSelection1 = (Button) convertView.findViewById(R.id.qOptAnswer1);
+            viewHolder.qSelection2 = (Button) convertView.findViewById(R.id.qOptAnswer2);
+            viewHolder.qSelection3 = (Button) convertView.findViewById(R.id.qOptAnswer3);
+            viewHolder.qSelection4 = (Button) convertView.findViewById(R.id.qOptAnswer4);
             viewHolder.qAnalysisText = (TextView) convertView.findViewById(R.id.qAnalysisText);
             viewHolder.qAnalysis = (TextView) convertView.findViewById(R.id.qAnalysis);
 
@@ -91,17 +91,17 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
                             viewHolder.qSelection1.setTextColor(Color.parseColor("#ba160c"));
                         }
                         viewHolder.qSelection1.setHighlightColor(Color.parseColor("#ba160c"));
-                        viewHolder.qSelection1.setChecked(true);
+                        viewHolder.qSelection1.setPressed(true);
                     }
                     else if (i == reqData.getAnalysisOpt()) {
                         viewHolder.qSelection1.setText(reqData.getOption1());
                         viewHolder.qSelection1.setTypeface(null, Typeface.BOLD);
                         viewHolder.qSelection1.setTextColor(Color.parseColor("#0000ff"));
                         viewHolder.qSelection1.setHighlightColor(Color.parseColor("#0000ff"));
-                        viewHolder.qSelection1.setChecked(true);
+                        viewHolder.qSelection1.setPressed(true);
                     }
                     else {
-                        viewHolder.qSelection1.setChecked(false);
+                        viewHolder.qSelection1.setPressed(false);
                         viewHolder.qSelection1.setTypeface(null, Typeface.NORMAL);
                         viewHolder.qSelection1.setText(reqData.getOption1());
                     }
@@ -121,17 +121,17 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
                             viewHolder.qSelection2.setTextColor(Color.parseColor("#ba160c"));
                         }
                         viewHolder.qSelection2.setHighlightColor(Color.parseColor("#ba160c"));
-                        viewHolder.qSelection2.setChecked(true);
+                        viewHolder.qSelection2.setPressed(true);
                     }
                     else if (i == reqData.getAnalysisOpt()) {
                         viewHolder.qSelection2.setText(reqData.getOption2());
                         viewHolder.qSelection2.setTextColor(Color.parseColor("#0000ff"));
                         viewHolder.qSelection2.setTypeface(null, Typeface.BOLD);
                         viewHolder.qSelection2.setHighlightColor(Color.parseColor("#0000ff"));
-                        viewHolder.qSelection2.setChecked(true);
+                        viewHolder.qSelection2.setPressed(true);
                     }
                     else {
-                        viewHolder.qSelection2.setChecked(false);
+                        viewHolder.qSelection2.setPressed(false);
                         viewHolder.qSelection2.setTypeface(null, Typeface.NORMAL);
                         viewHolder.qSelection2.setText(reqData.getOption2());
                     }
@@ -151,17 +151,17 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
                             viewHolder.qSelection3.setTextColor(Color.parseColor("#ba160c"));
                         }
                         viewHolder.qSelection3.setHighlightColor(Color.parseColor("#ba160c"));
-                        viewHolder.qSelection3.setChecked(true);
+                        viewHolder.qSelection3.setPressed(true);
                     }
                     else if (i == reqData.getAnalysisOpt()) {
                         viewHolder.qSelection3.setText(reqData.getOption3());
                         viewHolder.qSelection3.setTextColor(Color.parseColor("#0000ff"));
                         viewHolder.qSelection3.setTypeface(null, Typeface.BOLD);
                         viewHolder.qSelection3.setHighlightColor(Color.parseColor("#0000ff"));
-                        viewHolder.qSelection3.setChecked(true);
+                        viewHolder.qSelection3.setPressed(true);
                     }
                     else {
-                        viewHolder.qSelection3.setChecked(false);
+                        viewHolder.qSelection3.setPressed(false);
                         viewHolder.qSelection3.setTypeface(null, Typeface.NORMAL);
                         viewHolder.qSelection3.setText(reqData.getOption3());
                     }
@@ -181,17 +181,17 @@ public class TechEthicsResultAdapter extends ArrayAdapter<TechEthicsResult> {
                             viewHolder.qSelection4.setTextColor(Color.parseColor("#ba160c"));
                         }
                         viewHolder.qSelection4.setHighlightColor(Color.parseColor("#ba160c"));
-                        viewHolder.qSelection4.setChecked(true);
+                        viewHolder.qSelection4.setPressed(true);
                     }
                     else if (i == reqData.getAnalysisOpt()) {
                         viewHolder.qSelection4.setText(reqData.getOption4());
                         viewHolder.qSelection4.setTextColor(Color.parseColor("#0000ff"));
                         viewHolder.qSelection4.setTypeface(null, Typeface.BOLD);
                         viewHolder.qSelection4.setHighlightColor(Color.parseColor("#0000ff"));
-                        viewHolder.qSelection4.setChecked(true);
+                        viewHolder.qSelection4.setPressed(true);
                     }
                     else {
-                        viewHolder.qSelection4.setChecked(false);
+                        viewHolder.qSelection4.setPressed(false);
                         viewHolder.qSelection4.setTypeface(null, Typeface.NORMAL);
                         viewHolder.qSelection4.setText(reqData.getOption4());
                     }

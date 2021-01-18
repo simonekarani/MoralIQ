@@ -50,11 +50,10 @@ public class MoralDilemmaActivity extends AppCompatActivity {
 
     private TextView dilemmaTextView = null;
     private ImageView dilemmaImageView = null;
-    private RadioGroup dilemmaBtnGroup = null;
-    private RadioButton dilemmaOptBtn1 = null;
-    private RadioButton dilemmaOptBtn2 = null;
-    private RadioButton dilemmaOptBtn3 = null;
-    private RadioButton dilemmaOptBtn4 = null;
+    private Button dilemmaOptBtn1 = null;
+    private Button dilemmaOptBtn2 = null;
+    private Button dilemmaOptBtn3 = null;
+    private Button dilemmaOptBtn4 = null;
 
     private ArrayList<MoralDilemmaResult> mDilemmaResultList = new ArrayList<>();
     private Set<Integer> mDilemmaDataSet = new HashSet<>();
@@ -73,11 +72,10 @@ public class MoralDilemmaActivity extends AppCompatActivity {
 
         dilemmaTextView = (TextView) findViewById(R.id.dilemmaText);
         dilemmaImageView = (ImageView) findViewById(R.id.dilemmaImage);
-        dilemmaBtnGroup = (RadioGroup) findViewById(R.id.optButtonGroup);
-        dilemmaOptBtn1  = (RadioButton) findViewById(R.id.optButton1);
-        dilemmaOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
-        dilemmaOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
-        dilemmaOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
+        dilemmaOptBtn1  = (Button) findViewById(R.id.optButton1);
+        dilemmaOptBtn2  = (Button) findViewById(R.id.optButton2);
+        dilemmaOptBtn3  = (Button) findViewById(R.id.optButton3);
+        dilemmaOptBtn4  = (Button) findViewById(R.id.optButton4);
 
         myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
         dilemmaOptBtn1.setOnClickListener(myOnClickListener);
@@ -95,7 +93,10 @@ public class MoralDilemmaActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        dilemmaBtnGroup.clearCheck();
+        dilemmaOptBtn1.setPressed(false);
+        dilemmaOptBtn2.setPressed(false);
+        dilemmaOptBtn3.setPressed(false);
+        dilemmaOptBtn4.setPressed(false);
 
         if (userResultCount < MAX_DILEMMA_COUNT) {
             updateDilemmaView();
@@ -145,24 +146,18 @@ public class MoralDilemmaActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = dilemmaBtnGroup.getCheckedRadioButtonId();
+            int selectedId = 0;
             int selectedOptIdx = -1;
-            switch (selectedId) {
-                case R.id.optButton1:
-                    selectedOptIdx = 0;
-                    break;
-                case R.id.optButton2:
-                    selectedOptIdx = 1;
-                    break;
-                case R.id.optButton3:
-                    selectedOptIdx = 2;
-                    break;
-                case R.id.optButton4:
-                    selectedOptIdx = 3;
-                    break;
-                default:
-                    selectedOptIdx = 0;
-                    break;
+            if (dilemmaOptBtn1.isPressed()) {
+                selectedOptIdx = 0;
+            } else if (dilemmaOptBtn2.isPressed()) {
+                selectedOptIdx = 1;
+            } else if (dilemmaOptBtn3.isPressed()) {
+                selectedOptIdx = 2;
+            } else if (dilemmaOptBtn4.isPressed()) {
+                selectedOptIdx = 3;
+            } else {
+                selectedOptIdx = 0;
             }
             MoralDilemmaResult result = new MoralDilemmaResult(currDilemmaDataIdx, selectedOptIdx);
             mDilemmaResultList.add(result);
