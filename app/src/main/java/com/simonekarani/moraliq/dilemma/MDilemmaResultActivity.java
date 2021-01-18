@@ -107,12 +107,8 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     private void updateDilemmaResultMsg(ArrayList<MoralDilemmaResult> resultList) {
         if (currResultDisplayIdx == 0) {
             prevBtn.setAlpha(.5f);
-            prevBtn.setClickable(false);
-            prevBtn.setEnabled(false);
         } else if (currResultDisplayIdx == resultList.size()-1) {
             nextBtn.setAlpha(.5f);
-            nextBtn.setClickable(false);
-            nextBtn.setEnabled(false);
         }
 
         int dataListIdx = resultList.get(currResultDisplayIdx).getDilemmaIdx();
@@ -136,8 +132,8 @@ public class MDilemmaResultActivity extends AppCompatActivity {
                     currOptText = reqData.getOption3();
                     break;
                 case 3:
-                    currBtn = dilemmaAnsBtn3;
-                    currOptText = reqData.getOption3();
+                    currBtn = dilemmaAnsBtn4;
+                    currOptText = reqData.getOption4();
                     break;
                 default:
             }
@@ -146,7 +142,8 @@ public class MDilemmaResultActivity extends AppCompatActivity {
             }
 
             if ((j == userSelectionIdx) && (userSelectionIdx == reqData.getAnalysisOpt())) {
-                currBtn.setBackgroundColor(Color.rgb(144,238,144));
+                currBtn.setBackgroundColor(Color.rgb(34,139,34));
+                currBtn.setTextColor(Color.WHITE);
                 currBtn.setText(currOptText);
             } else if (j == userSelectionIdx) {
                 currOptText += WRONG_KEYWORD;
@@ -154,6 +151,8 @@ public class MDilemmaResultActivity extends AppCompatActivity {
                 currBtn.setTextColor(Color.WHITE);
                 currBtn.setText(currOptText);
             } else {
+                currBtn.setBackgroundColor(Color.rgb(169,169,169));
+                currBtn.setTextColor(Color.BLACK);
                 currBtn.setText(currOptText);
             }
         }
@@ -180,16 +179,12 @@ public class MDilemmaResultActivity extends AppCompatActivity {
             if (prevBtn.isPressed()) {
                 if (currResultDisplayIdx == resultList.size()-1) {
                     nextBtn.setAlpha(1f);
-                    nextBtn.setClickable(false);
-                    nextBtn.setEnabled(false);
                 }
                 currResultDisplayIdx = (currResultDisplayIdx == 0) ?
                         currResultDisplayIdx : currResultDisplayIdx-1;
             } else if (nextBtn.isPressed()) {
                 if (currResultDisplayIdx == 0) {
                     prevBtn.setAlpha(1f);
-                    prevBtn.setClickable(true);
-                    prevBtn.setEnabled(true);
                 }
                 currResultDisplayIdx = (currResultDisplayIdx == resultList.size()-1) ?
                         currResultDisplayIdx: currResultDisplayIdx+1;
