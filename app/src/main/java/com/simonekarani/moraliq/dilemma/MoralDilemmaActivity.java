@@ -146,7 +146,6 @@ public class MoralDilemmaActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = 0;
             int selectedOptIdx = -1;
             if (dilemmaOptBtn1.isPressed()) {
                 selectedOptIdx = 0;

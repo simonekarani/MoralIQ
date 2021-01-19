@@ -29,7 +29,7 @@
     <ImageView
         android:id="@+id/medEthicalImage"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
@@ -47,51 +47,76 @@
         android:textStyle="bold"
         android:text="Select one of the options?" />
 
-    <RadioGroup
-        android:id="@+id/medOptGroup"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent" >
 
-        <RadioButton
-            android:id="@+id/medOpt1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+            android:orientation="vertical" >
 
-        <RadioButton
-            android:id="@+id/medOpt2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+            <Button
+                android:id="@+id/medOpt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="RadioButton" />
 
-        <RadioButton
-            android:id="@+id/medOpt3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+            <Button
+                android:id="@+id/medOpt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="RadioButton" />
 
-        <RadioButton
-            android:id="@+id/medOpt4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:text="RadioButton" />
+            <Button
+                android:id="@+id/medOpt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="RadioButton" />
 
-    </RadioGroup>
+            <Button
+                android:id="@+id/medOpt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="RadioButton" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

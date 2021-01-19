@@ -15,17 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,11 +41,10 @@ public class MedicalEthicsActivity extends AppCompatActivity {
     private TextView medTextView = null;
     private ImageView medImageView = null;
     private TextView medOptTextView = null;
-    private RadioGroup medBtnGroup = null;
-    private RadioButton medOptBtn1 = null;
-    private RadioButton medOptBtn2 = null;
-    private RadioButton medOptBtn3 = null;
-    private RadioButton medOptBtn4 = null;
+    private Button medOptBtn1 = null;
+    private Button medOptBtn2 = null;
+    private Button medOptBtn3 = null;
+    private Button medOptBtn4 = null;
 
     private ArrayList<MedEthicalResult> medEthicalResultList = new ArrayList<>();
     private Set<Integer> medEthicalDataSet = new HashSet<>();
@@ -65,11 +61,10 @@ public class MedicalEthicsActivity extends AppCompatActivity {
         medTextView = (TextView) findViewById(R.id.medEthicalText);
         medImageView = (ImageView) findViewById(R.id.medEthicalImage);
         medOptTextView = (TextView) findViewById(R.id.medOptionText);
-        medBtnGroup = (RadioGroup) findViewById(R.id.medOptGroup);
-        medOptBtn1  = (RadioButton) findViewById(R.id.medOpt1);
-        medOptBtn2  = (RadioButton) findViewById(R.id.medOpt2);
-        medOptBtn3  = (RadioButton) findViewById(R.id.medOpt3);
-        medOptBtn4  = (RadioButton) findViewById(R.id.medOpt4);
+        medOptBtn1  = (Button) findViewById(R.id.medOpt1);
+        medOptBtn2  = (Button) findViewById(R.id.medOpt2);
+        medOptBtn3  = (Button) findViewById(R.id.medOpt3);
+        medOptBtn4  = (Button) findViewById(R.id.medOpt4);
 
         myOnClickListener = (View.OnClickListener) new MedicalEthicsActivity.MyOnClickListener(this);
         medOptBtn1.setOnClickListener(myOnClickListener);
@@ -89,7 +84,10 @@ public class MedicalEthicsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        medBtnGroup.clearCheck();
+        medOptBtn1.setPressed(false);
+        medOptBtn2.setPressed(false);
+        medOptBtn3.setPressed(false);
+        medOptBtn4.setPressed(false);
 
         if (userResultCount < MAX_MED_ETHICAL_COUNT) {
             updateMedEthicalView();
@@ -174,24 +172,17 @@ public class MedicalEthicsActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = medBtnGroup.getCheckedRadioButtonId();
             int selectedOptIdx = -1;
-            switch (selectedId) {
-                case R.id.medOpt1:
-                    selectedOptIdx = 0;
-                    break;
-                case R.id.medOpt2:
-                    selectedOptIdx = 1;
-                    break;
-                case R.id.medOpt3:
-                    selectedOptIdx = 2;
-                    break;
-                case R.id.medOpt4:
-                    selectedOptIdx = 3;
-                    break;
-                default:
-                    selectedOptIdx = 0;
-                    break;
+            if (medOptBtn1.isPressed()) {
+                selectedOptIdx = 0;
+            } else if (medOptBtn2.isPressed()) {
+                selectedOptIdx = 1;
+            } else if (medOptBtn3.isPressed()) {
+                selectedOptIdx = 2;
+            } else if (medOptBtn4.isPressed()) {
+                selectedOptIdx = 3;
+            } else {
+                selectedOptIdx = 0;
             }
             MedEthicalResult result = new MedEthicalResult(currMedDataIdx, selectedOptIdx);
             medEthicalResultList.add(result);
