@@ -15,8 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
@@ -24,7 +23,6 @@ import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,11 +40,10 @@ public class BusinessEthicsActivity extends AppCompatActivity {
 
     private TextView bizthicsTextView = null;
     private ImageView bizthicsImageView = null;
-    private RadioGroup bizthicsBtnGroup = null;
-    private RadioButton bizthicsOptBtn1 = null;
-    private RadioButton bizthicsOptBtn2 = null;
-    private RadioButton bizthicsOptBtn3 = null;
-    private RadioButton bizthicsOptBtn4 = null;
+    private Button bizthicsOptBtn1 = null;
+    private Button bizthicsOptBtn2 = null;
+    private Button bizthicsOptBtn3 = null;
+    private Button bizthicsOptBtn4 = null;
 
     private ArrayList<BusinessEthicsResult> mBizthicsResultList = new ArrayList<>();
     private Set<Integer> mBizthicsDataSet = new HashSet<>();
@@ -65,11 +62,10 @@ public class BusinessEthicsActivity extends AppCompatActivity {
 
         bizthicsTextView = (TextView) findViewById(R.id.bizthicsText);
         bizthicsImageView = (ImageView) findViewById(R.id.bizthicsImage);
-        bizthicsBtnGroup = (RadioGroup) findViewById(R.id.optButtonGroup);
-        bizthicsOptBtn1  = (RadioButton) findViewById(R.id.optButton1);
-        bizthicsOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
-        bizthicsOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
-        bizthicsOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
+        bizthicsOptBtn1  = (Button) findViewById(R.id.bizOptButton1);
+        bizthicsOptBtn2  = (Button) findViewById(R.id.bizOptButton2);
+        bizthicsOptBtn3  = (Button) findViewById(R.id.bizOptButton3);
+        bizthicsOptBtn4  = (Button) findViewById(R.id.bizOptButton4);
 
         myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
         bizthicsOptBtn1.setOnClickListener(myOnClickListener);
@@ -87,7 +83,10 @@ public class BusinessEthicsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        bizthicsBtnGroup.clearCheck();
+        bizthicsOptBtn1.setPressed(false);
+        bizthicsOptBtn2.setPressed(false);
+        bizthicsOptBtn3.setPressed(false);
+        bizthicsOptBtn4.setPressed(false);
 
         if (userResultCount < MAX_BIZTHICS_COUNT) {
             updateDilemmaView();
@@ -137,24 +136,17 @@ public class BusinessEthicsActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = bizthicsBtnGroup.getCheckedRadioButtonId();
             int selectedOptIdx = -1;
-            switch (selectedId) {
-                case R.id.optButton1:
-                    selectedOptIdx = 0;
-                    break;
-                case R.id.optButton2:
-                    selectedOptIdx = 1;
-                    break;
-                case R.id.optButton3:
-                    selectedOptIdx = 2;
-                    break;
-                case R.id.optButton4:
-                    selectedOptIdx = 3;
-                    break;
-                default:
-                    selectedOptIdx = 0;
-                    break;
+            if (bizthicsOptBtn1.isPressed()) {
+                selectedOptIdx = 0;
+            } else if (bizthicsOptBtn2.isPressed()) {
+                selectedOptIdx = 1;
+            } else if (bizthicsOptBtn3.isPressed()) {
+                selectedOptIdx = 2;
+            } else if (bizthicsOptBtn4.isPressed()) {
+                selectedOptIdx = 3;
+            } else {
+                selectedOptIdx = 0;
             }
             BusinessEthicsResult result = new BusinessEthicsResult(currBizthicsDataIdx, selectedOptIdx);
             mBizthicsResultList.add(result);
