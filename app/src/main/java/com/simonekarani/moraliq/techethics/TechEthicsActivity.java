@@ -15,22 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
-import com.simonekarani.moraliq.medethics.MedEthicalResultActivity;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,11 +40,10 @@ public class TechEthicsActivity extends AppCompatActivity {
 
     private TextView techthicsTextView = null;
     private ImageView techthicsImageView = null;
-    private RadioGroup techthicsBtnGroup = null;
-    private RadioButton techthicsOptBtn1 = null;
-    private RadioButton techthicsOptBtn2 = null;
-    private RadioButton techthicsOptBtn3 = null;
-    private RadioButton techthicsOptBtn4 = null;
+    private Button techthicsOptBtn1 = null;
+    private Button techthicsOptBtn2 = null;
+    private Button techthicsOptBtn3 = null;
+    private Button techthicsOptBtn4 = null;
 
     private ArrayList<TechEthicsResult> mTechthicsResultList = new ArrayList<>();
     private Set<Integer> mTechthicsDataSet = new HashSet<>();
@@ -62,22 +53,21 @@ public class TechEthicsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dilemma);
+        setContentView(R.layout.activity_techethics);
         setTitle("Technology Ethics");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         currDilemmaDataIdx = 0;
         userResultCount = 0;
 
-        techthicsTextView = (TextView) findViewById(R.id.dilemmaText);
-        techthicsImageView = (ImageView) findViewById(R.id.dilemmaImage);
-        techthicsBtnGroup = (RadioGroup) findViewById(R.id.optButtonGroup);
-        techthicsOptBtn1  = (RadioButton) findViewById(R.id.optButton1);
-        techthicsOptBtn2  = (RadioButton) findViewById(R.id.optButton2);
-        techthicsOptBtn3  = (RadioButton) findViewById(R.id.optButton3);
-        techthicsOptBtn4  = (RadioButton) findViewById(R.id.optButton4);
+        techthicsTextView = (TextView) findViewById(R.id.techText);
+        techthicsImageView = (ImageView) findViewById(R.id.techImage);
+        techthicsOptBtn1  = (Button) findViewById(R.id.techButton1);
+        techthicsOptBtn2  = (Button) findViewById(R.id.techButton2);
+        techthicsOptBtn3  = (Button) findViewById(R.id.techButton3);
+        techthicsOptBtn4  = (Button) findViewById(R.id.techButton4);
 
-        myOnClickListener = (View.OnClickListener) new TechEthicsActivity.MyOnClickListener(this);
+        myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
         techthicsOptBtn1.setOnClickListener(myOnClickListener);
         techthicsOptBtn2.setOnClickListener(myOnClickListener);
         techthicsOptBtn3.setOnClickListener(myOnClickListener);
@@ -93,7 +83,10 @@ public class TechEthicsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        techthicsBtnGroup.clearCheck();
+        techthicsOptBtn1.setPressed(false);
+        techthicsOptBtn2.setPressed(false);
+        techthicsOptBtn3.setPressed(false);
+        techthicsOptBtn4.setPressed(false);
 
         if (userResultCount < MAX_TECHTHICS_COUNT) {
             updateDilemmaView();
@@ -143,24 +136,17 @@ public class TechEthicsActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int selectedId = techthicsBtnGroup.getCheckedRadioButtonId();
             int selectedOptIdx = -1;
-            switch (selectedId) {
-                case R.id.optButton1:
-                    selectedOptIdx = 0;
-                    break;
-                case R.id.optButton2:
-                    selectedOptIdx = 1;
-                    break;
-                case R.id.optButton3:
-                    selectedOptIdx = 2;
-                    break;
-                case R.id.optButton4:
-                    selectedOptIdx = 3;
-                    break;
-                default:
-                    selectedOptIdx = 0;
-                    break;
+            if (techthicsOptBtn1.isPressed()) {
+                selectedOptIdx = 0;
+            } else if (techthicsOptBtn2.isPressed()) {
+                selectedOptIdx = 1;
+            } else if (techthicsOptBtn3.isPressed()) {
+                selectedOptIdx = 2;
+            } else if (techthicsOptBtn4.isPressed()) {
+                selectedOptIdx = 3;
+            } else {
+                selectedOptIdx = 0;
             }
             TechEthicsResult result = new TechEthicsResult(currDilemmaDataIdx, selectedOptIdx);
             mTechthicsResultList.add(result);
