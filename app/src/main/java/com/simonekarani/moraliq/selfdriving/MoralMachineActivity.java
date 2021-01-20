@@ -102,10 +102,9 @@ public class MoralMachineActivity extends AppCompatActivity {
     }
 
     private void updateMoralMachineView() {
-        /*do {
+        do {
             currMachineDataIdx = (int) (MoralMachineData.MoralMachineDataList.length * Math.random());
-        } while (mMachineDataSet.contains(currMachineDataIdx));*/
-        currMachineDataIdx++;
+        } while (mMachineDataSet.contains(currMachineDataIdx));
         mMachineDataSet.add(currMachineDataIdx);
         MoralMachineModel machineData = MoralMachineData.MoralMachineDataList[currMachineDataIdx];
         mMachineDataSet.add(currMachineDataIdx);
