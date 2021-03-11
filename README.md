@@ -16,3 +16,10 @@ I have categorized my gaming system into five areas:
 No data is collected through the gaming application. The gaming score is generated to make the dilemma scenarios fun, with a perspective towards providing interesting analysis for ethical decision making. 
 
 Results engine has been generated which provides a possible explanation for why the choice has been selected. 
+
+To build the application:
+1. Install Android IDE
+2. Clone the git repo
+3. Build and Run the application
+
+Application is available on the Android App Store: https://play.google.com/store/apps/details?id=com.simonekarani.ethicaliq
