@@ -1,122 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/dilemmaText"
         android:layout_width="match_parent"
-        android:layout_height="106dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:text="Which one?"
+        android:textSize="24dp"
         android:textStyle="bold"
-        android:text="Which one?" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dilemmaCopyrightText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
-        android:textSize="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:gravity="center"
+        android:text="Copyright &#169; THE QUIZ by Sosa Manuel"
+        android:textSize="12dp"
         android:textStyle="bold"
-        android:text="Copyright &#169; THE QUIZ by Sosa Manuel" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dilemmaText" />
 
     <ImageView
         android:id="@+id/dilemmaImage"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/optionText"
+        app:layout_constraintDimensionRatio="H,1.7:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dilemmaCopyrightText" />
 
     <TextView
         android:id="@+id/optionText"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="Select one of the below options?"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="Select one of the below options?" />
+        app:layout_constraintBottom_toTopOf="@+id/optButton1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dilemmaImage" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+    <Button
+        android:id="@+id/optButton1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingTop="2dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2dp"
+        android:text="RadioButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/optButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionText" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical" >
+    <Button
+        android:id="@+id/optButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingTop="2dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2dp"
+        android:text="RadioButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/optButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optButton1" />
 
-            <Button
-                android:id="@+id/optButton1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textStyle="normal"
-                android:text="RadioButton" />
+    <Button
+        android:id="@+id/optButton3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingTop="2dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2dp"
+        android:text="RadioButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/optButton4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optButton2" />
 
-            <Button
-                android:id="@+id/optButton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textStyle="normal"
-                android:text="RadioButton" />
+    <Button
+        android:id="@+id/optButton4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingTop="2dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2dp"
+        android:text="RadioButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optButton3" />
 
-            <Button
-                android:id="@+id/optButton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textStyle="normal"
-                android:text="RadioButton" />
-
-            <Button
-                android:id="@+id/optButton4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_centerHorizontal="true"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textStyle="normal"
-                android:text="RadioButton" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

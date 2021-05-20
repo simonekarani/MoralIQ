@@ -11,25 +11,15 @@ package com.simonekarani.moraliq.dilemma;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.simonekarani.moraliq.MainActivity;
 import com.simonekarani.moraliq.R;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
-import com.simonekarani.moraliq.selfdriving.MoralMachineActivity;
-import com.simonekarani.moraliq.selfdriving.MoralMachineData;
-import com.simonekarani.moraliq.selfdriving.MoralMachineResult;
 
 import java.util.ArrayList;
 import java.util.HashSet;
