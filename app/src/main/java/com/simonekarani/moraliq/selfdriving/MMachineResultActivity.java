@@ -3,6 +3,7 @@ package com.simonekarani.moraliq.selfdriving;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -35,7 +36,6 @@ public class MMachineResultActivity extends AppCompatActivity {
     private RadioButton dilemmaAnsBtn2 = null;
     private TextView drivingCorrectText = null;
     private TextView drivingCorrect = null;
-    private TextView drivingAnalysisText = null;
     private TextView drivingAnalysis = null;
 
     private View.OnClickListener myOnClickListener;
@@ -45,7 +45,7 @@ public class MMachineResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driving_results);
+        setContentView(R.layout.activity_miq);
         setTitle("Moral Machine Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -63,7 +63,6 @@ public class MMachineResultActivity extends AppCompatActivity {
         dilemmaAnsBtn1 = (RadioButton) findViewById(R.id.drivingOptAnswer1);
         dilemmaAnsBtn2 = (RadioButton) findViewById(R.id.drivingOptAnswer2);
         drivingCorrect = (TextView) findViewById(R.id.drivingCorrect);
-        drivingAnalysisText = (TextView) findViewById(R.id.driveAnalysisText);
         drivingAnalysis = (TextView) findViewById(R.id.driveAnalysis);
 
         currResultDisplayIdx = 0;
@@ -78,7 +77,6 @@ public class MMachineResultActivity extends AppCompatActivity {
     }
 
     private void setMMachineResultMsg(ArrayList<MoralMachineResult> resultList) {
-        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -89,15 +87,16 @@ public class MMachineResultActivity extends AppCompatActivity {
                 moralCnt++;
             }
         }
-        resultMsg += "" + moralCnt + "/" + totalCnt;
+        String resultStr = "" + moralCnt + "/" + totalCnt;
+        String resultMsg = "Congratulations!!&emsp;" + "<b>" + "Score: " + resultStr + "</b>" + "<br>";
         String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
             msgValue = "Fabulous";
         else if (resultValue > 0.3)
             msgValue = "Groovy";
-        resultMsg += "\nHigh school wisdom: " + msgValue;
-        drivingResultMsg.setText(resultMsg);
+        resultMsg += "High school wisdom: " + msgValue;
+        drivingResultMsg.setText(Html.fromHtml(resultMsg));
 
         updateMMachineResultMsg(resultList);
     }
@@ -141,8 +140,8 @@ public class MMachineResultActivity extends AppCompatActivity {
             }
         }
 
-        drivingAnalysisText.setText("Analysis:");
-        drivingAnalysis.setText(reqData.getAnalysis());
+        String analysisString = "<b>" + "Analysis:" + "</b> " + reqData.getAnalysis();
+        drivingAnalysis.setText(Html.fromHtml(analysisString));
     }
 
     private class MyOnClickListener implements View.OnClickListener {

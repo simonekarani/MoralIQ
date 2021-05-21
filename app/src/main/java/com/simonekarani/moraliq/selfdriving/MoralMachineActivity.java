@@ -10,9 +10,7 @@ package com.simonekarani.moraliq.selfdriving;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,21 +19,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
 import com.simonekarani.moraliq.model.MainScreenDataModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MoralMachineActivity extends AppCompatActivity {

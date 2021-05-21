@@ -1,99 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/drivingText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="What should the self driving car do on a sudden brake failure"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="What should the self driving car do on a sudden brake failure" />
+        app:layout_constraintBottom_toTopOf="@+id/optionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/optionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
-        android:textSize="18dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="Select left or right option?"
+        android:textSize="16dp"
         android:textStyle="bold"
-        android:text="Select left or right option?" />
+        app:layout_constraintBottom_toTopOf="@+id/copyrightText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drivingText" />
 
     <TextView
         android:id="@+id/copyrightText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
-        android:textSize="12dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
         android:gravity="center"
+        android:text="Copyright &#169; mit media lab"
+        android:textSize="12dp"
         android:textStyle="bold"
-        android:text="Copyright &#169; mit media lab" />
+        app:layout_constraintBottom_toTopOf="@+id/drivingOptImg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionText" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="0dp"
-        android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/drivingOptImg1"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/optionText1"
+        app:layout_constraintEnd_toStartOf="@+id/drivingOptImg2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/copyrightText" />
 
-        <ImageButton
-            android:id="@+id/drivingOptImg1"
-            android:layout_marginRight="2dp"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:layout_width="wrap_content"
-            android:layout_height="290dp" />
+    <ImageButton
+        android:id="@+id/drivingOptImg2"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/optionText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/drivingOptImg1"
+        app:layout_constraintTop_toBottomOf="@+id/copyrightText" />
 
-        <ImageButton
-            android:id="@+id/drivingOptImg2"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:layout_width="wrap_content"
-            android:layout_height="290dp" />
+    <Button
+        android:id="@+id/optionText1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:text="Select one of the below options?"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/optionText2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drivingOptImg1" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/optionText2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:text="Select one of the below options?"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/optionText1"
+        app:layout_constraintTop_toBottomOf="@+id/drivingOptImg2" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="0dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/optionText1"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="1dp"
-            android:gravity="left|center_vertical"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:text="Select one of the below options?" />
-
-        <Button
-            android:id="@+id/optionText2"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="1dp"
-            android:gravity="left|center_vertical"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:text="Select one of the below options?" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
