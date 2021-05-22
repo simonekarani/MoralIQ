@@ -10,16 +10,12 @@ package com.simonekarani.moraliq.techethics;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaData;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaModel;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
 
 import java.util.ArrayList;
 
@@ -33,7 +29,6 @@ public class TechEthicsResultActivity extends AppCompatActivity {
     private Button nextBtn = null;
 
     private TextView techEthicsResultMsg = null;
-    private TextView techQText = null;
     private TextView techUser = null;
     private TextView techAnswerText;
     private Button techAnsBtn1 = null;
@@ -42,7 +37,6 @@ public class TechEthicsResultActivity extends AppCompatActivity {
     private Button techAnsBtn4 = null;
     private TextView techCorrectText = null;
     private TextView techCorrect = null;
-    private TextView techAnalysisText = null;
     private TextView techAnalysis = null;
 
     private View.OnClickListener myOnClickListener;
@@ -67,7 +61,6 @@ public class TechEthicsResultActivity extends AppCompatActivity {
         resultList = resBundle.getParcelableArrayList("techEthicalResult");
 
         techEthicsResultMsg = (TextView) findViewById(R.id.techthicsResultMsg);
-        techQText = (TextView) findViewById(R.id.techQText);
         techUser = (TextView) findViewById(R.id.techName);
         techAnswerText = (TextView) findViewById(R.id.techAnswerText);
         techAnsBtn1  = (Button) findViewById(R.id.qTechAnswer1);
@@ -76,7 +69,6 @@ public class TechEthicsResultActivity extends AppCompatActivity {
         techAnsBtn4  = (Button) findViewById(R.id.qTechAnswer4);
         techCorrectText = (TextView) findViewById(R.id.techCorrectText);
         techCorrect = (TextView) findViewById(R.id.techCorrect);
-        techAnalysisText = (TextView) findViewById(R.id.techAnalysisText);
         techAnalysis = (TextView) findViewById(R.id.techAnalysis);
 
         setTechEthicsResultMsg(resultList);
@@ -90,7 +82,6 @@ public class TechEthicsResultActivity extends AppCompatActivity {
     }
 
     public void setTechEthicsResultMsg(ArrayList<TechEthicsResult> resultList) {
-        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -101,15 +92,16 @@ public class TechEthicsResultActivity extends AppCompatActivity {
                 moralCnt++;
             }
         }
-        resultMsg += "" + moralCnt + "/" + totalCnt;
+        String resultStr = "" + moralCnt + "/" + totalCnt;
+        String resultMsg = "Congratulations!!&emsp;" + "<b>" + "Score: " + resultStr + "</b>" + "<br>";
         String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
             msgValue = "Fabulous";
         else if (resultValue > 0.3)
             msgValue = "Groovy";
-        resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
-        techEthicsResultMsg.setText(resultMsg);
+        resultMsg += "\nHigh school wisdom: " + msgValue;
+        techEthicsResultMsg.setText(Html.fromHtml(resultMsg));
 
         updateTechEthicsResultMsg(resultList);
     }
@@ -167,13 +159,13 @@ public class TechEthicsResultActivity extends AppCompatActivity {
             }
         }
 
-        techQText.setText("Question:");
-        techUser.setText(reqData.getQuestion().replaceAll("\n", ""));
+        String techQuestion = "<b>" + "Question: " + "</b>" + reqData.getQuestion().replaceAll("\n", "");
+        techUser.setText(Html.fromHtml(techQuestion));
         techAnswerText.setText("Your Selection:");
         techCorrectText.setText("Correct Answer:");
         techCorrect.setText(correctAnswer);
-        techAnalysisText.setText("Analysis:");
-        techAnalysis.setText(reqData.getAnalysis());
+        String techAnalysisStr = "<b>" + "Analysis: " + "</b>" + reqData.getAnalysis();
+        techAnalysis.setText(Html.fromHtml(techAnalysisStr));
     }
 
     private class MyOnClickListener implements View.OnClickListener {

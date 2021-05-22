@@ -3,6 +3,7 @@ package com.simonekarani.moraliq.medethics;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
@@ -19,7 +20,6 @@ public class MedEthicalResultActivity extends AppCompatActivity {
     private Button nextBtn = null;
 
     private TextView medEthicsResultMsg = null;
-    private TextView medQText = null;
     private TextView medUser = null;
     private TextView medAnswerText;
     private Button medAnsBtn1 = null;
@@ -28,7 +28,6 @@ public class MedEthicalResultActivity extends AppCompatActivity {
     private Button medAnsBtn4 = null;
     private TextView medCorrectText = null;
     private TextView medCorrect = null;
-    private TextView medAnalysisText = null;
     private TextView medAnalysis = null;
 
     private View.OnClickListener myOnClickListener;
@@ -52,7 +51,6 @@ public class MedEthicalResultActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(myOnClickListener);
 
         medEthicsResultMsg = (TextView) findViewById(R.id.medethicsResultMsg);
-        medQText = (TextView) findViewById(R.id.medQText);
         medUser = (TextView) findViewById(R.id.medName);
         medAnswerText = (TextView) findViewById(R.id.medAnswerText);
         medAnsBtn1  = (Button) findViewById(R.id.medAnswer1);
@@ -61,7 +59,6 @@ public class MedEthicalResultActivity extends AppCompatActivity {
         medAnsBtn4  = (Button) findViewById(R.id.medAnswer4);
         medCorrectText = (TextView) findViewById(R.id.medCorrectText);
         medCorrect = (TextView) findViewById(R.id.medCorrect);
-        medAnalysisText = (TextView) findViewById(R.id.medAnalysisText);
         medAnalysis = (TextView) findViewById(R.id.medAnalysis);
 
         setMedEthicsResultMsg(resultList);
@@ -75,7 +72,6 @@ public class MedEthicalResultActivity extends AppCompatActivity {
     }
 
     private void setMedEthicsResultMsg(ArrayList<MedEthicalResult> resultList) {
-        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -86,7 +82,8 @@ public class MedEthicalResultActivity extends AppCompatActivity {
                 moralCnt++;
             }
         }
-        resultMsg += "" + moralCnt + "/" + totalCnt;
+        String resultStr = "" + moralCnt + "/" + totalCnt;
+        String resultMsg = "Congratulations!!&emsp;" + "<b>" + "Score: " + resultStr + "</b>" + "<br>";
         String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
@@ -94,7 +91,7 @@ public class MedEthicalResultActivity extends AppCompatActivity {
         else if (resultValue > 0.3)
             msgValue = "Groovy";
         resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
-        medEthicsResultMsg.setText(resultMsg);
+        medEthicsResultMsg.setText(Html.fromHtml(resultMsg));
 
         updateMedEthicsResultMsg(resultList);
     }
@@ -160,13 +157,13 @@ public class MedEthicalResultActivity extends AppCompatActivity {
             }
         }
 
-        medQText.setText("Question:");
-        medUser.setText(reqData.getQuestion().replaceAll("\n", ""));
+        String medQuestion = "<b>" + "Question: " + "</b>" + reqData.getQuestion().replaceAll("\n", "");
+        medUser.setText(Html.fromHtml(medQuestion));
         medAnswerText.setText("Your Selection:");
         medCorrectText.setText("Correct Answer:");
         medCorrect.setText(correctAnswer);
-        medAnalysisText.setText("Analysis:");
-        medAnalysis.setText(reqData.getAnalysis());
+        String medAnalysisStr = "<b>" + "Analysis: " + "</b>" + reqData.getAnalysis();
+        medAnalysis.setText(Html.fromHtml(medAnalysisStr));
     }
 
     private class MyOnClickListener implements View.OnClickListener {

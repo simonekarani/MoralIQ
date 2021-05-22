@@ -1,18 +1,14 @@
 package com.simonekarani.moraliq.selfdriving;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.simonekarani.moraliq.R;
-import com.simonekarani.moraliq.dilemma.MDilemmaResultActivity;
-import com.simonekarani.moraliq.dilemma.MoralDilemmaResult;
 
 import java.util.ArrayList;
 
@@ -45,7 +41,7 @@ public class MMachineResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_miq);
+        setContentView(R.layout.activity_driving_results);
         setTitle("Moral Machine Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

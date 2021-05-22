@@ -2,12 +2,9 @@ package com.simonekarani.moraliq.dilemma;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
@@ -42,7 +39,7 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dilemma_results);
+        setContentView(R.layout.activity_driving_results);
         setTitle("Moral Dilemma Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -98,7 +95,7 @@ public class MDilemmaResultActivity extends AppCompatActivity {
             msgValue = "Fabulous";
         else if (resultValue > 0.3)
             msgValue = "Groovy";
-        resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
+        resultMsg += "\nHigh school wisdom: " + msgValue;
         dilemmaResultMsg.setText(resultMsg);
 
         updateDilemmaResultMsg(resultList);
