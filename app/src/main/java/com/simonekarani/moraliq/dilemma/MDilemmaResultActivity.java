@@ -3,6 +3,7 @@ package com.simonekarani.moraliq.dilemma;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,7 +21,6 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     private Button nextBtn = null;
 
     private TextView dilemmaResultMsg = null;
-    private TextView dilemmaQText = null;
     private TextView dilemmaUser = null;
     private TextView dilemmaAnswerText;
     private Button dilemmaAnsBtn1 = null;
@@ -29,7 +29,6 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     private Button dilemmaAnsBtn4 = null;
     private TextView dilemmaCorrectText = null;
     private TextView dilemmaCorrect = null;
-    private TextView dilemmaAnalysisText = null;
     private TextView dilemmaAnalysis = null;
 
     private View.OnClickListener myOnClickListener;
@@ -39,7 +38,7 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driving_results);
+        setContentView(R.layout.activity_dilemma_results);
         setTitle("Moral Dilemma Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -47,13 +46,12 @@ public class MDilemmaResultActivity extends AppCompatActivity {
         resultList = resBundle.getParcelableArrayList("dilemmaResult");
 
         prevBtn  = (Button) findViewById(R.id.dilPrevBtn);
-        nextBtn  = (Button) findViewById(R.id.dilNextButton);
+        nextBtn  = (Button) findViewById(R.id.dilNextBtn);
         myOnClickListener = (View.OnClickListener) new MyOnClickListener(this);
         prevBtn.setOnClickListener(myOnClickListener);
         nextBtn.setOnClickListener(myOnClickListener);
 
         dilemmaResultMsg = (TextView) findViewById(R.id.dilemmaResultMsg);
-        dilemmaQText = (TextView) findViewById(R.id.dilemmaQText);
         dilemmaUser = (TextView) findViewById(R.id.dilemmaName);
         dilemmaAnswerText = (TextView) findViewById(R.id.dilemmaAnswerText);
         dilemmaAnsBtn1  = (Button) findViewById(R.id.qDilAnswer1);
@@ -62,7 +60,6 @@ public class MDilemmaResultActivity extends AppCompatActivity {
         dilemmaAnsBtn4  = (Button) findViewById(R.id.qDilAnswer4);
         dilemmaCorrectText = (TextView) findViewById(R.id.dilemmaCorrectText);
         dilemmaCorrect = (TextView) findViewById(R.id.dilemmaCorrect);
-        dilemmaAnalysisText = (TextView) findViewById(R.id.dilemmaAnalysisText);
         dilemmaAnalysis = (TextView) findViewById(R.id.dilemmaAnalysis);
 
         setDilemmaResultMsg(resultList);
@@ -76,7 +73,6 @@ public class MDilemmaResultActivity extends AppCompatActivity {
     }
 
     private void setDilemmaResultMsg(ArrayList<MoralDilemmaResult> resultList) {
-        String resultMsg = "Congratulations!!\nScore: ";
         int totalCnt = resultList.size();
         int moralCnt = 0;
 
@@ -88,7 +84,8 @@ public class MDilemmaResultActivity extends AppCompatActivity {
                 moralCnt++;
             }
         }
-        resultMsg += "" + moralCnt + "/" + totalCnt;
+        String resultStr = "" + moralCnt + "/" + totalCnt;
+        String resultMsg = "Congratulations!!&emsp;" + "<b>" + "Score: " + resultStr + "</b>" + "<br>";
         String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
         if (resultValue > 0.6)
@@ -96,7 +93,7 @@ public class MDilemmaResultActivity extends AppCompatActivity {
         else if (resultValue > 0.3)
             msgValue = "Groovy";
         resultMsg += "\nHigh school wisdom: " + msgValue;
-        dilemmaResultMsg.setText(resultMsg);
+        dilemmaResultMsg.setText(Html.fromHtml(resultMsg));
 
         updateDilemmaResultMsg(resultList);
     }
@@ -154,13 +151,13 @@ public class MDilemmaResultActivity extends AppCompatActivity {
             }
         }
 
-        dilemmaQText.setText("Question:");
-        dilemmaUser.setText(reqData.getQuestion().replaceAll("\n", ""));
+        String dilQuestion = "<b>" + "Question: " + "</b>" + reqData.getQuestion().replaceAll("\n", "");
+        dilemmaUser.setText(Html.fromHtml(dilQuestion));
         dilemmaAnswerText.setText("Your Selection:");
         dilemmaCorrectText.setText("Correct Answer:");
         dilemmaCorrect.setText(correctAnswer);
-        dilemmaAnalysisText.setText("Analysis:");
-        dilemmaAnalysis.setText(reqData.getAnalysis());
+        String dilAnalysisStr = "<b>" + "Analysis: " + "</b>" + reqData.getAnalysis();
+        dilemmaAnalysis.setText(Html.fromHtml(dilAnalysisStr));
     }
 
     private class MyOnClickListener implements View.OnClickListener {
