@@ -3,6 +3,7 @@ package com.simonekarani.moraliq.bizethics;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,7 +27,6 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
     private Button nextBtn = null;
 
     private TextView bizethicsResultMsg = null;
-    private TextView bizQText = null;
     private TextView bizUser = null;
     private TextView bizAnswerText;
     private Button bizAnsBtn1 = null;
@@ -35,7 +35,6 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
     private Button bizAnsBtn4 = null;
     private TextView bizCorrectText = null;
     private TextView bizCorrect = null;
-    private TextView bizAnalysisText = null;
     private TextView bizAnalysis = null;
 
     private View.OnClickListener myOnClickListener;
@@ -59,7 +58,6 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(myOnClickListener);
 
         bizethicsResultMsg = (TextView) findViewById(R.id.bizethicsResultMsg);
-        bizQText = (TextView) findViewById(R.id.bizQText);
         bizUser = (TextView) findViewById(R.id.bizName);
         bizAnswerText = (TextView) findViewById(R.id.bizAnswerText);
         bizAnsBtn1  = (Button) findViewById(R.id.qBizAnswer1);
@@ -68,7 +66,6 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
         bizAnsBtn4  = (Button) findViewById(R.id.qBizAnswer4);
         bizCorrectText = (TextView) findViewById(R.id.bizCorrectText);
         bizCorrect = (TextView) findViewById(R.id.bizCorrect);
-        bizAnalysisText = (TextView) findViewById(R.id.bizAnalysisText);
         bizAnalysis = (TextView) findViewById(R.id.bizAnalysis);
 
         setBizEthicsResultMsg(resultList);
@@ -82,7 +79,6 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
     }
 
     private void setBizEthicsResultMsg(ArrayList<BusinessEthicsResult> resultList) {
-        String resultMsg = "Congratulations\nScore:";
         int totalCnt = resultList.size();
         int moralCnt = 0;
         for (int i = 0; i < resultList.size(); i++) {
@@ -93,6 +89,8 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
                 moralCnt++;
             }
         }
+        String resultStr = "" + moralCnt + "/" + totalCnt;
+        String resultMsg = "Congratulations!!&emsp;" + "<b>" + "Score: " + resultStr + "</b>" + "<br>";
         resultMsg += "" + moralCnt + "/" + totalCnt;
         String msgValue = "Sorry...";
         double resultValue = (double)moralCnt/totalCnt;
@@ -101,7 +99,7 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
         else if (resultValue > 0.3)
             msgValue = "Groovy";
         resultMsg += "\nHigh school wisdom: " + msgValue + "\n";
-        bizethicsResultMsg.setText(resultMsg);
+        bizethicsResultMsg.setText(Html.fromHtml(resultMsg));
 
         updateBizEthicsResultMsg(resultList);
     }
@@ -159,13 +157,13 @@ public class BusinessEthicsResultActivity extends AppCompatActivity {
             }
         }
 
-        bizQText.setText("Question:");
-        bizUser.setText(reqData.getQuestion().replaceAll("\n", ""));
+        String bizQuestion = "<b>" + "Question: " + "</b>" + reqData.getQuestion().replaceAll("\n", "");
+        bizUser.setText(Html.fromHtml(bizQuestion));
         bizAnswerText.setText("Your Selection:");
         bizCorrectText.setText("Correct Answer:");
         bizCorrect.setText(correctAnswer);
-        bizAnalysisText.setText("Analysis:");
-        bizAnalysis.setText(reqData.getAnalysis());
+        String bizAnalysisStr = "<b>" + "Analysis: " + "</b>" + reqData.getAnalysis();
+        bizAnalysis.setText(Html.fromHtml(bizAnalysisStr));
     }
 
     private class MyOnClickListener implements View.OnClickListener {
